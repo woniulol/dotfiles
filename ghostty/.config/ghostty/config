@@ -1,0 +1,64 @@
+# Try to attach/init the tmux session and allow exit tmux to have a plain terminal.
+command = "$SHELL -l -c 'tmux attach || tmux; clear; exec $SHELL -l'"
+
+font-family = Hasklug Nerd Font 
+font-family-bold = Hasklug Nerd Font SemBd
+font-family-italic = Hasklug Nerd Font Italic
+font-family-bold-italic = Hasklug Nerd Font SemBd Italic 
+font-size = 18
+
+theme = Catppuccin Macchiato
+
+# MacOS only
+font-thicken = true
+font-thicken-strength = 0 
+
+background-opacity = 0
+background-blur = 16 
+
+window-padding-balance = true
+window-padding-x = 10
+window-padding-y = 0
+# window-save-state = always
+
+# macos-titlebar-style = transparent
+macos-titlebar-style = hidden
+macos-option-as-alt = true
+
+copy-on-select = clipboard
+
+# custom-shader = shaders/cursor_smear_gradient.glsl
+# custom-shader = shaders/cursor_smear_fade.glsl
+custom-shader = shaders/cursor_smear_original.glsl
+
+term = xterm-256color
+
+# Keybindings
+# Shift + cmd + \ -> view all tabs.
+keybind = cmd+g>s>h=new_split:left
+keybind = cmd+g>s>j=new_split:down
+keybind = cmd+g>s>k=new_split:up
+keybind = cmd+g>s>l=new_split:right
+
+# keybind = cmd+h=goto_split:left
+# keybind = cmd+j=goto_split:down
+# keybind = cmd+k=goto_split:up
+# keybind = cmd+l=goto_split:right
+
+keybind = cmd+g>s>e=equalize_splits
+
+# Tmux leader key
+# Check the plain test input with `xxd -psd`
+# all cmd is mapped to meta(option/alt) 
+keybind = cmd+b=text:\x1b\x62
+keybind = cmd+h=text:\x1b\x68
+keybind = cmd+j=text:\x1b\x6a
+keybind = cmd+k=text:\x1b\x6b
+keybind = cmd+l=text:\x1b\x6c
+
+keybind = cmd+digit_1=text:\x1b\x31
+keybind = cmd+digit_2=text:\x1b\x32
+keybind = cmd+digit_3=text:\x1b\x33
+keybind = cmd+digit_4=text:\x1b\x34
+keybind = cmd+digit_5=text:\x1b\x35
+
