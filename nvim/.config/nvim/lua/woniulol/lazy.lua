@@ -40,6 +40,7 @@ require("lazy").setup(
         require("woniulol.plugins.snacks"),
         require("woniulol.plugins.aerial"),
         require("woniulol.plugins.colorizer"),
+        require("woniulol.plugins.diffview"),
 
         -- Replace by snack.
         -- require("woniulol.plugins.indentblankline"),
