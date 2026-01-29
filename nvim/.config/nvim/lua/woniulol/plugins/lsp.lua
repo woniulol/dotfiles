@@ -1,7 +1,6 @@
 return {
     {
         "neovim/nvim-lspconfig",
-         event = "VeryLazy",
         dependencies = {
             { "mason-org/mason.nvim" },
             { "mason-org/mason-lspconfig.nvim" },
@@ -27,6 +26,7 @@ return {
                     "basedpyright",
                     "rust_analyzer",
                     "ruff",
+                    "pyrefly",
                     -- brew install marksman
                     "marksman",
                     "prettierd",
@@ -38,7 +38,8 @@ return {
             vim.lsp.enable("ty")
             vim.lsp.enable("ruff")
             -- vim.lsp.enable("pyright")
-            vim.lsp.enable("basedpyright")
+            -- vim.lsp.enable("basedpyright")
+            vim.lsp.enable("pyrefly")
             vim.lsp.enable("rust_analyzer")
             vim.lsp.enable("marksman")
             vim.lsp.enable("prettierd")
