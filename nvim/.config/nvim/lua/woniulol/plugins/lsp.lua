@@ -30,6 +30,8 @@ return {
                     -- brew install marksman
                     "marksman",
                     "prettierd",
+                    -- https://github.com/bash-lsp/bash-language-server/tree/main
+                    "bashls"
                 },
             })
             require("woniulol.plugins.lsp_config")
@@ -43,6 +45,7 @@ return {
             vim.lsp.enable("rust_analyzer")
             vim.lsp.enable("marksman")
             vim.lsp.enable("prettierd")
+            vim.lsp.enable("bashls")
 
             local capabilities = require("blink.cmp").get_lsp_capabilities()
 
