@@ -70,4 +70,7 @@ alias lta='lt -a'
 alias ff="fzf --preview 'bat --style=numbers --color=always {}'"
 alias sv="source .venv/bin/activate"
 
+# Color for zsh-autosuggestion virtual text.
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=244"
+
 . "$HOME/.local/bin/env"
