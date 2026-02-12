@@ -1,1 +1,5 @@
 **/.DS_Store
+
+# Don't track the tmux plugins, but keep the folder there.
+tmux/.tmux/plugins/*
+!tmux/.tmux/plugins/.gitkeep
