@@ -1,0 +1,207 @@
+# This is a demo config to showcase some of the most important commands.
+# It is meant to be changed and configured, as it is intentionally kept sparse.
+# For a (much) more advanced configuration example see my dotfiles:
+# https://github.com/FelixKratz/dotfiles
+#
+# Pre-requisites:
+# brew install --cask sf-symbols
+# brew install ifstat
+
+PLUGIN_DIR="$CONFIG_DIR/plugins"
+
+##### Changing Defaults #####
+# We now change some default values, which are applied to all further items.
+# For a full list of all available item properties see:
+# https://felixkratz.github.io/SketchyBar/config/items
+#
+# NOTE:
+# `padding_right/left` does not work for bracket, the padding needs to be overwritten by the `padding_right/left` of the nearby items.
+# 
+# NOTE:
+# `padding_right/left` default don't seem to work. Define the variable to use.
+
+PADDING_LEFT_DEFAULT=5
+PADDING_RIGHT_DEFAULT=5
+DOUBLE_PADDING_LEFT="$(( PADDING_LEFT_DEFAULT * 2 ))"
+DOUBLE_PADDING_RIGHT="$(( PADDING_RIGHT_DEFAULT * 2 ))"
+
+default=(
+
+    # Geometry defaults don't seem to work.
+    # padding_left=50
+    # padding_right=50
+
+    icon.font="JetBrainsMono Nerd Font Mono:Bold:18"
+    icon.padding_left=10
+    icon.padding_right=5
+    icon.y_offset=1             # Intentional, looks better.
+
+    background.corner_radius=10
+    background.height=32
+    background.color='0xdd1e1e2e'
+    background.padding_left=0
+    background.padding_right=0
+
+    label.font="JetBrainsMono Nerd Font Mono:Bold:18"
+    label.color='0xffcdd6f4'
+    label.padding_left=5
+    label.padding_right=10
+    label.y_offset=1             # Intentional, looks better.
+
+)
+sketchybar --default "${default[@]}"
+
+#####################
+
+
+##### Bar Appearance #####
+# Configuring the general appearance of the bar.
+# These are only some of the options available. For all options see:
+# https://felixkratz.github.io/SketchyBar/config/bar
+# If you are looking for other colors, see the color picker:
+# https://felixkratz.github.io/SketchyBar/config/tricks#color-picker
+
+bar=(
+    height=32  
+    color=0x00000000  # Transparent
+    margin=0  
+    sticky=on  
+    y_offset=6  
+    notch_width=188  
+    display=all 
+)
+sketchybar --bar "${bar[@]}"
+
+#####################
+
+
+##### Adding Left Items #####
+# We add some regular items to the left side of the bar, where
+# only the properties deviating from the current defaults need to be set
+
+##### Apple Logo #####
+
+apple=(
+    icon='􀣺' 
+    icon.color='0xfff38ba8'
+    icon.font.size=20
+    icon.y_offset=1             # Intentional, looks better.
+    label="$USER"
+    label.y_offset=1            # Intentional, looks better.
+    padding_left=0
+    padding_right="$DOUBLE_PADDING_RIGHT"
+)
+sketchybar --add item apple left --set apple "${apple[@]}"
+
+######################
+
+##### Aerospace #####
+
+sketchybar --add event aerospace_workspace_change
+SPACE_ITEMS=""
+
+space_item_common=(
+    background.color='0x44ffffff'
+    background.height=20
+    label.padding_left=10
+    icon.drawing=off
+)
+
+for sid in $(aerospace list-workspaces --all); do
+  ITEM="space.$sid"
+  SPACE_ITEMS="$SPACE_ITEMS $ITEM"
+
+  sketchybar --add item "$ITEM" left \
+             --subscribe "$ITEM" aerospace_workspace_change \
+             --set "$ITEM" \
+                   "${space_item_common[@]}" \
+                   label="$sid" \
+                   click_script="aerospace workspace $sid" \
+                   script="$CONFIG_DIR/plugins/aerospace.sh $sid"
+done
+
+sketchybar --add bracket aerospace_spaces $SPACE_ITEMS --set aerospace_spaces
+
+#####################
+
+##### Front App #####
+
+front_app=(
+    icon.color='0xffa6da95'
+    script="$PLUGIN_DIR/front_app.sh"
+    padding_left="$DOUBLE_PADDING_LEFT"
+    padding_right=0
+)
+
+sketchybar --add item front_app left \
+           --set front_app "${front_app[@]}" \
+           --subscribe front_app front_app_switched
+
+#####################
+
+
+##### Adding Right Items #####
+# In the same way as the left items we can add items to the right side.
+# Additional position (e.g. center) are available, see:
+# https://felixkratz.github.io/SketchyBar/config/items#adding-items-to-sketchybar
+
+# Some items refresh on a fixed cycle, e.g. the clock runs its script once
+# every 10s. Other items respond to events they subscribe to, e.g. the
+# volume.sh script is only executed once an actual change in system audio
+# volume is registered. More info about the event system can be found here:
+# https://felixkratz.github.io/SketchyBar/config/events
+
+clock=(
+    icon='􀐬' 
+    icon.color='0xff89b4fa'
+    script="$PLUGIN_DIR/clock.sh" 
+    update_freq=30
+    padding_left="$PADDING_LEFT_DEFAULT"
+    padding_right=0
+)
+
+volumn=(
+    icon.color='0xffcba6f7'
+    script="$PLUGIN_DIR/volume.sh"
+    padding_left="$PADDING_LEFT_DEFAULT"
+    padding_right="$PADDING_RIGHT_DEFAULT"
+)
+
+battery=(
+    icon.color='0xffa6e3a1'
+    script="$PLUGIN_DIR/battery.sh"
+    padding_left="$DOUBLE_PADDING_LEFT"
+    padding_right="$PADDING_RIGHT_DEFAULT"
+    update_freq=120
+)
+
+network_down=(
+    icon='􀄩'
+    icon.color='0xff74c7ec'
+    update_freq=1
+)
+
+network_up=(
+    icon='􀄨'
+    icon.color='0xffa6e3a1'
+    update_freq=1
+    script="$PLUGIN_DIR/network.sh"
+)
+
+sketchybar \
+    --add item clock right --set clock "${clock[@]}" \
+    \
+    --add item volume right --set volume "${volumn[@]}" \
+    --subscribe volume volume_change \
+    \
+    --add item battery right --set battery "${battery[@]}" \
+    --subscribe battery system_woke power_source_change \
+    \
+    --add item network.down right --set network.down "${network_down[@]}" \
+    \
+    --add item network.up right --set network.up "${network_up[@]}"
+
+sketchybar --add bracket network_group network.down network.up
+
+##### Force all scripts to run the first time (never do this in a script) #####
+sketchybar --update
