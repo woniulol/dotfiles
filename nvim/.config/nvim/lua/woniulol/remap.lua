@@ -60,6 +60,7 @@ vim.opt.iskeyword:append("-") -- Treat "-" as part of a word
 vim.opt.iskeyword:append("-") -- Treat "_" as part of a word
 vim.opt.path:append("**")     -- Include files in sub directories
 vim.o.scrolloff = 20          -- Prevent cursor drop to bottom
+vim.o.mousescroll = "ver:2,hor:2"
 
 -- Clipboard setting
 vim.keymap.set({ "x", "v" }, "p", [["_dP]], { desc = "Paste without yank" })

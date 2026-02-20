@@ -17,7 +17,7 @@ nvim
 sudo apt update
 sudo apt-get update
 sudo apt install build-essential cmake -y
-sudo apt-get install python3.12.venv
+sudo apt-get install python3-venv
 
 # install npm and node
 # https://nodejs.org/en/download
