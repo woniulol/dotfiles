@@ -61,6 +61,12 @@ bindkey '^y' autosuggest-accept
 # export FZF_DEFAULT_COMMAND="fd . --hidden --exclude .git"
 # export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
+#
+
+fw() {
+  aerospace list-windows --all \
+  | fzf --bind "enter:become(aerospace focus --window-id {1})"
+}
 
 # Alias
 alias ls='eza -lh --group-directories-first --icons=auto'
