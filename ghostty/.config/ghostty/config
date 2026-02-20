@@ -1,20 +1,25 @@
 # Try to attach/init the tmux session and allow exit tmux to have a plain terminal.
-command = "$SHELL -l -c 'tmux attach || tmux; clear; exec $SHELL -l'"
+# command = "$SHELL -l -c 'tmux attach || tmux; clear; exec $SHELL -l'"
 
-font-family = Hasklug Nerd Font 
-font-family-bold = Hasklug Nerd Font SemBd
-font-family-italic = Hasklug Nerd Font Italic
-font-family-bold-italic = Hasklug Nerd Font SemBd Italic 
+font-family = Cascadia Mono
+font-family-bold = Cascadia Mono SemiBold
+font-family-italic = Cascadia Mono Italic
+font-family-bold-italic = Cascadia Mono SemiBold Italic 
 font-size = 18
+adjust-cell-width=5%
+adjust-cell-height=5%
 
 theme = Catppuccin Macchiato
+# Increase visibility for Bright Black (Color 8)
+# This affects the dashes in ls -l and other UI elements
+palette = 8=#acb0be
 
 # MacOS only
 font-thicken = true
-font-thicken-strength = 0 
+font-thicken-strength = 10
 
-background-opacity = 0
-background-blur = 16 
+background-opacity = 0.5
+background-blur = 16
 
 window-padding-balance = true
 window-padding-x = 10
@@ -30,6 +35,9 @@ copy-on-select = clipboard
 # custom-shader = shaders/cursor_smear_gradient.glsl
 # custom-shader = shaders/cursor_smear_fade.glsl
 custom-shader = shaders/cursor_smear_original.glsl
+
+# Be careful that this will multiplied by the tmux scroll number of line.
+mouse-scroll-multiplier = 1
 
 term = xterm-256color
 
@@ -62,3 +70,5 @@ keybind = cmd+digit_3=text:\x1b\x33
 keybind = cmd+digit_4=text:\x1b\x34
 keybind = cmd+digit_5=text:\x1b\x35
 
+keybind = cmd+n=unbind
+# keybind = cmd+t=unbind
