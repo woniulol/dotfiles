@@ -57,11 +57,10 @@ bindkey '^y' autosuggest-accept
 
 # fzf
 # Set up fzf key bindings and fuzzy completion
-# source <(fzf --zsh)
-# export FZF_DEFAULT_COMMAND="fd . --hidden --exclude .git"
-# export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-# export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
-#
+source <(fzf --zsh)
+export FZF_DEFAULT_COMMAND="fd . --hidden --exclude .git"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
 
 fw() {
   aerospace list-windows --all \
@@ -78,5 +77,25 @@ alias sv="source .venv/bin/activate"
 
 # Color for zsh-autosuggestion virtual text.
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=244"
+
+# Open buffer line in editor with v
+autoload -Uz edit-command-line
+zle -N edit-command-line
+vicmd_edit_command_line() {
+  zle edit-command-line
+  CURSOR=${#BUFFER}
+  zle vi-insert
+}
+zle -N vicmd_edit_command_line
+bindkey -M vicmd 'v' vicmd_edit_command_line
+
+# Insert git commit command and move cursor to the middle with Ctrl+x p+c
+gc_commit_widget() {
+  BUFFER='git commit -m ""'
+  CURSOR=$(( ${#BUFFER} - 1 ))   # place cursor between the quotes
+  zle vi-insert                  # switch to insert mode
+}
+zle -N gc_commit_widget
+bindkey -M vicmd 'gc' gc_commit_widget
 
 . "$HOME/.local/bin/env"
