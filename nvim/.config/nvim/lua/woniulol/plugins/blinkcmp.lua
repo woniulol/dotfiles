@@ -40,6 +40,10 @@ return {
             },
 
             completion = {
+                trigger = {
+                    show_on_trigger_character = true,
+                    show_on_blocked_trigger_characters = {},
+                },
                 documentation = {
                     auto_show = true,
                     window = {

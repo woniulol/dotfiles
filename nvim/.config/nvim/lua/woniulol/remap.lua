@@ -30,8 +30,6 @@ vim.o.softtabstop = 4
 vim.o.expandtab = true
 vim.o.smartindent = true
 vim.o.autoindent = true
-vim.keymap.set("v", "<", "<gv", { desc = "Indent left and reselect" })
-vim.keymap.set("v", ">", ">gv", { desc = "Indent right and reselect" })
 
 -- Search
 vim.o.incsearch = true
@@ -119,10 +117,12 @@ vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower win
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 -- Move Lines up/down
-vim.keymap.set("n", "<S-M-j>", ":m .+1<CR>==", { desc = "Move line down" })
-vim.keymap.set("n", "<S-M-k>", ":m .-2<CR>==", { desc = "Move line up" })
-vim.keymap.set("v", "<S-M-j>", ":m '>+1<CR>gv=gv", { desc = "Move line down" })
-vim.keymap.set("v", "<S-M-k>", ":m '<-2<CR>gv=gv", { desc = "Move line up" })
+-- vim.keymap.set("n", "<S-M-j>", ":m .+1<CR>==", { desc = "Move line down" })
+-- vim.keymap.set("n", "<S-M-k>", ":m .-2<CR>==", { desc = "Move line up" })
+vim.keymap.set("v", "<S-h>", "<gv", { desc = "Indent left and reselect" })
+vim.keymap.set("v", "<S-l>", ">gv", { desc = "Indent right and reselect" })
+vim.keymap.set("v", "<S-j>", ":m '>+1<CR>gv=gv", { desc = "Move line down" })
+vim.keymap.set("v", "<S-k>", ":m '<-2<CR>gv=gv", { desc = "Move line up" })
 
 -- Shortcut to create a new [s]mall [t]erminal
 vim.keymap.set("n", "<leader>st", function()

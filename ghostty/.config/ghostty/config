@@ -1,24 +1,33 @@
 # Try to attach/init the tmux session and allow exit tmux to have a plain terminal.
 # command = "$SHELL -l -c 'tmux attach || tmux; clear; exec $SHELL -l'"
 
-font-family = Cascadia Mono
-font-family-bold = Cascadia Mono SemiBold
-font-family-italic = Cascadia Mono Italic
-font-family-bold-italic = Cascadia Mono SemiBold Italic 
+# font-family = Cascadia Mono
+# font-family = Mononoki Nerd Font Mono
+font-family = JetBrainsMono Nerd Font Mono
+font-family-bold = JetBrainsMono Nerd Font Mono SemiBold
+font-family-italic = JetBrainsMono Nerd Font Mono Italic
+font-family-bold-italic = JetBrainsMono Nerd Font Mono SemiBold Italic 
 font-size = 18
-adjust-cell-width=5%
-adjust-cell-height=5%
+adjust-cell-width=-5%
+adjust-cell-height=-5%
+font-feature = -liga
+font-feature = -clig
+font-feature = -calt
 
-theme = Catppuccin Macchiato
+# theme = Catppuccin Macchiato
+theme = Catppuccin Mocha
+# theme = Catppuccin Frappe
+# theme = TokyoNight Night
 # Increase visibility for Bright Black (Color 8)
 # This affects the dashes in ls -l and other UI elements
-palette = 8=#acb0be
+palette = 15=#ffffff
+cursor-color = #c6d0f5
 
 # MacOS only
 font-thicken = true
 font-thicken-strength = 10
 
-background-opacity = 0.5
+background-opacity = 0.8
 background-blur = 16
 
 window-padding-balance = true
@@ -32,9 +41,12 @@ macos-option-as-alt = true
 
 copy-on-select = clipboard
 
+
 # custom-shader = shaders/cursor_smear_gradient.glsl
 # custom-shader = shaders/cursor_smear_fade.glsl
 custom-shader = shaders/cursor_smear_original.glsl
+cursor-style = block
+shell-integration-features = no-cursor
 
 # Be careful that this will multiplied by the tmux scroll number of line.
 mouse-scroll-multiplier = 1

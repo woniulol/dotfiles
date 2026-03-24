@@ -8,7 +8,12 @@ config-version = 2
 # Run Sketchybar together with AeroSpace
 # sketchybar has a built-in detection of already running process,
 # so it won't be run twice on AeroSpace restart
-after-startup-command = ['exec-and-forget sketchybar']
+# 
+# Install sketchybar and JankyBorders
+after-startup-command = [
+    'exec-and-forget sketchybar',
+    'exec-and-forget borders active_color=0xfffab387 width=6',
+]
 
 # Notify Sketchybar about workspace change
 exec-on-workspace-change = ['/bin/bash', '-c',
@@ -77,7 +82,8 @@ on-mode-changed = []
     inner.vertical =   8
     outer.left =       8
     outer.bottom =     8
-    outer.top =        [ { monitor."HDMI" = 45}, 6 ]
+    # outer.top =        [ { monitor."S2721QS" = 100 }, { monitor."HDMI" = 45 }, 6 ]
+    outer.top =        8
     outer.right =      8
 
 # 'main' binding mode declaration
