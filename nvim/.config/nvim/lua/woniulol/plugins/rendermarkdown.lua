@@ -1,7 +1,7 @@
 return {
     {
         'MeanderingProgrammer/render-markdown.nvim',
-        event = { "BufEnter *.md" },
+        event = { "BufEnter *.md", "BufEnter *.sql" },
         dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
         opts = {
             sign = { enabled = false },

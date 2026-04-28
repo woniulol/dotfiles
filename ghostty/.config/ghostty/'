@@ -1,19 +1,12 @@
 # Try to attach/init the tmux session and allow exit tmux to have a plain terminal.
-#
 # command = "$SHELL -l -c 'tmux attach || tmux; clear; exec $SHELL -l'"
 
 # font-family = Cascadia Mono
-
 # font-family = Mononoki Nerd Font Mono
-# font-family-bold = Mononoki Nerd Font Bold
-# font-family-italic = Mononoki Nerd Font Italic
-# font-family-bold-italic = Mononoki Nerd Font Bold Italic
-
 font-family = JetBrainsMono Nerd Font Mono
 font-family-bold = JetBrainsMono Nerd Font Mono SemiBold
 font-family-italic = JetBrainsMono Nerd Font Mono Italic
 font-family-bold-italic = JetBrainsMono Nerd Font Mono SemiBold Italic 
-
 font-size = 18
 adjust-cell-width=-5%
 adjust-cell-height=-5%
@@ -22,16 +15,16 @@ font-feature = -clig
 font-feature = -calt
 
 # theme = Catppuccin Macchiato
-# theme = Catppuccin Mocha
-theme = Catppuccin Frappe
+theme = Catppuccin Mocha
+# theme = Catppuccin Frappe
 # theme = Catppuccin Latte
 # theme = TokyoNight Night
 # Increase visibility for Bright Black (Color 8)
 # This affects the dashes in ls -l and other UI elements
-palette = 7=#BDBDBD
-palette = 15=#ffffff
+# palette = 7=#BDBDBD
+# palette = 15=#ffffff
 # background = #000000
-foreground = #ffffff
+# foreground = #ffffff
 # cursor-color = #c6d0f5
 
 # palette = 0=#45475a
@@ -52,7 +45,7 @@ foreground = #ffffff
 # palette = 14=#94e2d5
 # palette = 15=#bac2de
 #
-background = #1e1e2e
+# background = #1e1e2e
 # foreground = #cdd6f4
 # cursor-color = #f5e0dc
 # cursor-text = #11111b
@@ -61,11 +54,11 @@ background = #1e1e2e
 # split-divider-color = #313244
 
 # MacOS only
-# font-thicken = true
-# font-thicken-strength = 128
+font-thicken = true
+font-thicken-strength = 16
 
-background-opacity = 0.6
-background-blur = 16
+# background-opacity = 0.35
+# background-blur = 16
 
 window-padding-balance = true
 window-padding-x = 10

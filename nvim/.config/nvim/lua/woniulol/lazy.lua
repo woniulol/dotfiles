@@ -41,6 +41,9 @@ require("lazy").setup(
         require("woniulol.plugins.aerial"),
         require("woniulol.plugins.colorizer"),
         require("woniulol.plugins.diffview"),
+        require("woniulol.plugins.nvimtsautotag"),
+        require("woniulol.plugins.bqls"),
+
 
         -- Replace by snack.
         -- require("woniulol.plugins.indentblankline"),

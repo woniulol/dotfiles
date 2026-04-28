@@ -74,6 +74,10 @@ alias lt='eza --tree --level=2 --long --icons --git'
 alias lta='lt -a'
 alias ff="fzf --preview 'bat --style=numbers --color=always {}'"
 alias sv="source .venv/bin/activate"
+alias dv="deactivate"
+alias gfa="git fetch --all"
+alias cc="claude"
+alias v="nvim"
 
 # Color for zsh-autosuggestion virtual text.
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=244"
@@ -99,3 +103,5 @@ zle -N gc_commit_widget
 bindkey -M vicmd 'gc' gc_commit_widget
 
 . "$HOME/.local/bin/env"
+
+eval "$(starship init zsh)"

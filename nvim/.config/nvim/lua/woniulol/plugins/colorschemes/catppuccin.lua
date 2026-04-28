@@ -9,7 +9,7 @@ return {
                 transparent = true, -- enable transparent floating windows
                 -- solid = true,        -- use solid styling for floating windows, see |winborder|
             },
-            flavour = "mocha", -- latte, frappe, macchiato, mocha
+            flavour = "frappe", -- latte, frappe, macchiato, mocha
             lsp_styles = {
                 underlines = {
                     errors = { "undercurl" },

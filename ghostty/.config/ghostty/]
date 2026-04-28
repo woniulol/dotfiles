@@ -64,7 +64,7 @@ background = #1e1e2e
 # font-thicken = true
 # font-thicken-strength = 128
 
-background-opacity = 0.6
+background-opacity = 0.5
 background-blur = 16
 
 window-padding-balance = true

@@ -31,7 +31,11 @@ return {
                     "marksman",
                     "prettierd",
                     -- https://github.com/bash-lsp/bash-language-server/tree/main
-                    "bashls"
+                    "bashls",
+                    "html-lsp",
+                    "css-lsp",
+                    "ts_ls",
+                    "bqls",
                 },
             })
             require("woniulol.plugins.lsp_config")
@@ -46,6 +50,11 @@ return {
             vim.lsp.enable("marksman")
             vim.lsp.enable("prettierd")
             vim.lsp.enable("bashls")
+            vim.lsp.enable("html")
+            vim.lsp.enable("cssls")
+            vim.lsp.enable("ts_ls")
+            vim.lsp.enable("bqls")
+
 
             local capabilities = require("blink.cmp").get_lsp_capabilities()
 
