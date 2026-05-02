@@ -1,6 +1,6 @@
 require("blink.cmp").setup({
     keymap = {
-        -- this is for the K doc
+        -- this is not for the K doc
         ["<C-u>"] = { "scroll_documentation_up", "fallback" },
         ["<C-d>"] = { "scroll_documentation_down", "fallback" },
     },
