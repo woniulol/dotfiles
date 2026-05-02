@@ -14,6 +14,8 @@ local function map(mode, lhs, rhs, desc, extra_opts)
     vim.keymap.set(mode, lhs, rhs, options)
 end
 
+map('n', '<Esc>', '<cmd>nohlsearch<CR>', "Clear highlights on search when pressing <Esc>")
+
 map({ "x", "v" }, "p", [["_dP]], "paste without yank")
 map({ "n", "v" }, "d", [["_d]], "delete d without yank")
 map({ "n", "x", "v" }, "x", [["_x]], "delete x without yank")
@@ -28,11 +30,13 @@ map('n', '<C-l>', '<C-w><C-l>', 'Move focus to the right window' )
 map('n', '<C-j>', '<C-w><C-j>', 'Move focus to the lower window' )
 map('n', '<C-k>', '<C-w><C-k>', 'Move focus to the upper window' )
 
-
 map("v", "J", ":m '>+1<CR>gv=gv", "Move line down" )
 map("v", "K", ":m '<-2<CR>gv=gv", "Move line up" )
 map("v", "L", ">gv", "Indent right and reselect" )
 map("v", "H", "<gv", "Indent left and reselect" )
+
+map("v", "v", "an", "Increment Selection", { remap = true})
+map("v", "V", "in", "Decrement Selection", { remap = true})
 
 map("n", "<leader>st", function()
     vim.cmd.vnew()
