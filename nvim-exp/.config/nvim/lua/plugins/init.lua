@@ -33,6 +33,8 @@ vim.pack.add({
 
 	"https://github.com/stevearc/conform.nvim",
 	"https://github.com/sindrets/diffview.nvim",
+	"https://github.com/mcauley-penney/visual-whitespace.nvim",
+	"https://github.com/folke/todo-comments.nvim",
 })
 
 -- prepend mason's bin dir so lspconfig can spawn already-installed servers
@@ -54,6 +56,8 @@ vim.schedule(function()
 	require("plugins.gitsigns")
 	require("plugins.conform")
 	require("plugins.diffview")
+	require("plugins.visual-whitespace")
+	require("plugins.todo-comments")
 end)
 
 -- lazy: load mason the first time you open the cmdline (covers :Mason*)

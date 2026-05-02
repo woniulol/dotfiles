@@ -12,7 +12,7 @@
 font-family = JetBrainsMono Nerd Font Mono
 font-family-bold = JetBrainsMono Nerd Font Mono SemiBold
 font-family-italic = JetBrainsMono Nerd Font Mono Italic
-font-family-bold-italic = JetBrainsMono Nerd Font Mono SemiBold Italic 
+font-family-bold-italic = JetBrainsMono Nerd Font Mono SemiBold Italic
 
 font-size = 18
 adjust-cell-width=-5%
@@ -21,9 +21,9 @@ font-feature = -liga
 font-feature = -clig
 font-feature = -calt
 
-# theme = Catppuccin Macchiato
+theme = Catppuccin Macchiato
 # theme = Catppuccin Mocha
-theme = Catppuccin Frappe
+# theme = Catppuccin Frappe
 # theme = Catppuccin Latte
 # theme = TokyoNight Night
 # Increase visibility for Bright Black (Color 8)
@@ -52,7 +52,7 @@ foreground = #ffffff
 # palette = 14=#94e2d5
 # palette = 15=#bac2de
 #
-background = #1e1e2e
+# background = #1e1e2e
 # foreground = #cdd6f4
 # cursor-color = #f5e0dc
 # cursor-text = #11111b
@@ -64,8 +64,8 @@ background = #1e1e2e
 # font-thicken = true
 # font-thicken-strength = 128
 
-background-opacity = 0.6
-background-blur = 16
+# background-opacity = 0.6
+# background-blur = 16
 
 window-padding-balance = true
 window-padding-x = 10
@@ -106,7 +106,7 @@ keybind = cmd+g>s>e=equalize_splits
 
 # Tmux leader key
 # Check the plain test input with `xxd -psd`
-# all cmd is mapped to meta(option/alt) 
+# all cmd is mapped to meta(option/alt)
 keybind = cmd+b=text:\x1b\x62
 keybind = cmd+h=text:\x1b\x68
 keybind = cmd+j=text:\x1b\x6a
