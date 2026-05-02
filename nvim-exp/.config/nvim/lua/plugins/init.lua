@@ -11,11 +11,24 @@ vim.api.nvim_create_autocmd("PackChanged", {
 })
 
 vim.pack.add({
+    -- "https://github.com/shaunsingh/nord.nvim",
+    -- "https://github.com/vague-theme/vague.nvim",
+
     "https://www.github.com/nvim-tree/nvim-tree.lua",
     "https://www.github.com/ibhagwan/fzf-lua",
     "https://github.com/nvim-mini/mini.surround",
     "https://github.com/lewis6991/gitsigns.nvim",
-    { src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main"},
+    {
+        src = "https://github.com/nvim-treesitter/nvim-treesitter",
+        version = "main",
+    },
+    {
+        src = "https://github.com/saghen/blink.cmp",
+        version = vim.version.range("1.*"),
+    },
+    "https://github.com/neovim/nvim-lspconfig",
+    "https://github.com/mason-org/mason.nvim",
+    "https://github.com/mason-org/mason-lspconfig.nvim",
 })
 
 require("plugins.fzf-lua")
@@ -23,4 +36,7 @@ require("plugins.nvim-tree")
 require("plugins.mini-surround")
 require("plugins.gitsigns")
 require("plugins.treesitter")
+require("plugins.blinkcmp")
 
+require("plugins.lsp.mason")
+require("plugins.lsp.lspconfig")

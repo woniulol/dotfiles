@@ -60,6 +60,7 @@ vim.opt.swapfile = false                          -- don't create swap files
 vim.opt.autoread = true                           -- reload file if changed
 vim.opt.autowrite = false                         -- don't auto write
 vim.opt.hidden = true                             -- allow hidden buffer
+vim.opt.fixendofline = false
 
 -- time
 vim.opt.updatetime = 50                           -- faster react time
@@ -112,10 +113,12 @@ vim.opt.wildmode = "longest:full,full"
 
 -- other
 -- vim.opt.pumheight = 10 -- pop-up menu height
--- vim.opt.pumblend = 10 -- pop-up menu transparency
+-- vim.opt.pumblend = 0 -- pop-up menu transparency
+vim.opt.winborder = "single"
 -- vim.opt.winblend = 0  -- floating window transparency
 -- vim.opt.conceallevel = 0 -- do not hide markup
 -- vim.opt.concealcursor = "" -- do not hide cursor line in markup
+
 
 -- spelling
 vim.opt.spelllang = "en_us"
