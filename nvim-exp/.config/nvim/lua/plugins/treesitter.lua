@@ -17,31 +17,58 @@
 local treesitter = require("nvim-treesitter")
 
 local ensure_installed = {
-    "json", "javascript", "typescript", "tsx", "go", "yaml", "html", "css", "python", "http",
-    "prisma", "markdown", "markdown_inline", "svelte", "graphql", "bash", "lua", "vim",
-    "dockerfile", "gitignore", "query", "vimdoc", "c", "java", "rust", "ron",
+	"json",
+	"javascript",
+	"typescript",
+	"tsx",
+	"go",
+	"yaml",
+	"html",
+	"css",
+	"python",
+	"http",
+	"prisma",
+	"markdown",
+	"markdown_inline",
+	"svelte",
+	"graphql",
+	"bash",
+	"lua",
+	"vim",
+	"dockerfile",
+	"gitignore",
+	"query",
+	"vimdoc",
+	"c",
+	"java",
+	"rust",
+	"ron",
 }
 treesitter.install(ensure_installed)
 
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = "*",
-    callback = function(args)
-        local buf = args.buf
-        local ft = vim.bo[buf].filetype
-        local lang = vim.treesitter.language.get_lang(ft)
+	pattern = "*",
+	callback = function(args)
+		local buf = args.buf
+		local ft = vim.bo[buf].filetype
+		local lang = vim.treesitter.language.get_lang(ft)
 
-        if not lang then return end
+		if not lang then
+			return
+		end
 
-        local ok_add = pcall(vim.treesitter.language.add, lang)
-        if not ok_add then return end
+		local ok_add = pcall(vim.treesitter.language.add, lang)
+		if not ok_add then
+			return
+		end
 
-        pcall(vim.treesitter.start, buf, lang)
+		pcall(vim.treesitter.start, buf, lang)
 
-        -- enable indentation only for real languages
-        if ft ~= "yaml" and ft ~= "markdown" then
-            vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-            vim.bo[buf].smartindent = false
-            vim.bo[buf].cindent = false
-        end
-    end,
+		-- enable indentation only for real languages
+		if ft ~= "yaml" and ft ~= "markdown" then
+			vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+			vim.bo[buf].smartindent = false
+			vim.bo[buf].cindent = false
+		end
+	end,
 })

@@ -23,10 +23,10 @@ map("n", "N", "Nzzzv", "center screen when jumping to previous")
 map("n", "<C-d>", "<C-d>zz", "center screen when scrolling down")
 map("n", "<C-u>", "<C-u>zz", "center screen when scrolling up")
 
-map("n", "<C-h>", "<C-w><C-h>", "Move focus to the left window")
-map("n", "<C-l>", "<C-w><C-l>", "Move focus to the right window")
-map("n", "<C-j>", "<C-w><C-j>", "Move focus to the lower window")
-map("n", "<C-k>", "<C-w><C-k>", "Move focus to the upper window")
+map("n", "<C-h>", "<C-w>h", "Move focus to the left window")
+map("n", "<C-l>", "<C-w>l", "Move focus to the right window")
+map("n", "<C-j>", "<C-w>j", "Move focus to the lower window")
+map("n", "<C-k>", "<C-w>k", "Move focus to the upper window")
 
 map("v", "J", ":m '>+1<CR>gv=gv", "Move line down")
 map("v", "K", ":m '<-2<CR>gv=gv", "Move line up")
@@ -35,6 +35,17 @@ map("v", "H", "<gv", "Indent left and reselect")
 
 map("v", "v", "an", "Increment Selection", { remap = true })
 map("v", "V", "in", "Decrement Selection", { remap = true })
+
+map("n", "<leader>aa", function()
+	vim.cmd("argadd %")
+	vim.cmd("argdedupe")
+	print("Arg added: " .. vim.fn.expand("%:~:."))
+end, "add buffer to arg list")
+
+map("n", "<leader>ad", "<cmd>argdelete %<CR>", "delete buffer to arg list")
+map("n", "<leader>al", function()
+	require("user.shp").focus_or_open()
+end, "delete buffer to arg list")
 
 map("n", "<leader>st", function()
 	vim.cmd.vnew()

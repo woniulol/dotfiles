@@ -1,4 +1,4 @@
--- lazy: fzf-lua is loaded on first key press, not at startup
+-- lazy: fzf-lua is loaded on first keypress, not at startup
 local map = vim.keymap.set
 
 local loaded = false
