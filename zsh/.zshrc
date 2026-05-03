@@ -43,6 +43,7 @@ zle -N zle-keymap-select
 
 # editor
 export PATH="$PATH:/opt/nvim-macos-arm64/bin"
+# export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 export EDITOR="nvim"
 export VISUAL="nvim"
 
