@@ -15,6 +15,10 @@ map("n", "<leader>of", function()
 	fzf().files()
 end, { desc = "FZF Files" })
 
+map("n", "<leader>oc", function()
+	fzf().files({ cwd = vim.fn.stdpath("config") })
+end, { desc = "FZF Files" })
+
 map("n", "<leader>lg", function()
 	fzf().live_grep()
 end, { desc = "FZF Live Grep" })

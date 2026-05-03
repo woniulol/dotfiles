@@ -42,7 +42,6 @@ map("n", "<leader>aa", function()
 	print("Arg added: " .. vim.fn.expand("%:~:."))
 end, "add buffer to arg list")
 
-map("n", "<leader>ad", "<cmd>argdelete %<CR>", "delete buffer to arg list")
 map("n", "<leader>al", function()
 	require("user.shp").focus_or_open()
 end, "delete buffer to arg list")
@@ -67,6 +66,15 @@ end, "wrap-aware down", { expr = true })
 map("n", "k", function()
 	return vim.v.count == 0 and "gk" or "k"
 end, "wrap-aware up", { expr = true })
+
+map("n", "<leader>h", function()
+	local word = vim.fn.expand("<cword>")
+	if word == "" then
+		return
+	end
+	vim.fn.setreg("/", [[\<]] .. word .. [[\>]])
+	vim.opt.hlsearch = true
+end, "highlight word under cursor")
 
 map("n", "<leader>fmt", vim.lsp.buf.format, "lsp format")
 map("n", "<leader>D", vim.diagnostic.setloclist, "open diagnostic list")
