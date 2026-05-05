@@ -15,7 +15,11 @@ vim.pack.add({
 	-- "https://github.com/vague-theme/vague.nvim",
 	-- "https://github.com/catppuccin/nvim",
 
-	"https://www.github.com/nvim-tree/nvim-tree.lua",
+	-- deps
+	"https://github.com/nvim-lua/plenary.nvim",
+
+	-- "https://www.github.com/nvim-tree/nvim-tree.lua",
+	"https://github.com/mikavilpas/yazi.nvim",
 	"https://www.github.com/ibhagwan/fzf-lua",
 	"https://github.com/nvim-mini/mini.surround",
 	"https://github.com/lewis6991/gitsigns.nvim",
@@ -43,7 +47,7 @@ vim.env.PATH = vim.fn.stdpath("data") .. "/mason/bin:" .. vim.env.PATH
 
 -- eager: register lazy keymaps (no plugin code loaded yet)
 require("plugins.fzf-lua")
-require("plugins.nvim-tree")
+-- require("plugins.nvim-tree")
 
 -- eager: needed before the first buffer's FileType fires
 require("plugins.treesitter")
@@ -58,6 +62,7 @@ vim.schedule(function()
 	require("plugins.diffview")
 	require("plugins.visual-whitespace")
 	require("plugins.todo-comments")
+	require("plugins.yazi")
 end)
 
 -- lazy: load mason the first time you open the cmdline (covers :Mason*)

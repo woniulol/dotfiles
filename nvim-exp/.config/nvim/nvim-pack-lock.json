@@ -62,6 +62,10 @@
       "rev": "b68f1e66736840e837c2a77ebff59c932fcb70c7",
       "src": "https://github.com/rmehri01/onenord.nvim"
     },
+    "plenary.nvim": {
+      "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
+      "src": "https://github.com/nvim-lua/plenary.nvim"
+    },
     "todo-comments.nvim": {
       "rev": "31e3c38ce9b29781e4422fc0322eb0a21f4e8668",
       "src": "https://github.com/folke/todo-comments.nvim"
@@ -77,6 +81,10 @@
     "visual-whitespace.nvim": {
       "rev": "49ff2b1c572ed7033a584381fa23aad2bf3bb258",
       "src": "https://github.com/mcauley-penney/visual-whitespace.nvim"
+    },
+    "yazi.nvim": {
+      "rev": "250c16e80c1f9d885052b525312baf37f0695ebb",
+      "src": "https://github.com/mikavilpas/yazi.nvim"
     }
   }
 }
