@@ -53,6 +53,17 @@ map("n", "<leader>st", function()
 	vim.cmd("startinsert")
 end, "create small terminal")
 
+map("x", "<leader>ru", function()
+	vim.cmd('noautocmd normal! "vy')
+	local cmd = vim.fn.getreg("v")
+	vim.cmd("botright 15new")
+	vim.bo.buftype = "nofile"
+	vim.bo.bufhidden = "wipe"
+	vim.fn.jobstart({ vim.o.shell, "-i", "-c", cmd }, { term = true })
+end, "run selection as shell command")
+
+map("t", "<C-\\><C-\\>", "<C-\\><C-n>", "exit terminal mode")
+
 map("n", "<leader>yp", function()
 	local path = vim.fn.expand("%:p")
 	vim.fn.setreg("+", path)
