@@ -14,9 +14,12 @@ vim.pack.add({
 	-- "https://github.com/shaunsingh/nord.nvim",
 	-- "https://github.com/vague-theme/vague.nvim",
 	-- "https://github.com/catppuccin/nvim",
+	-- "https://github.com/zenbones-theme/zenbones.nvim",
+	-- "https://github.com/rmehri01/onenord.nvim",
 
 	-- deps
 	"https://github.com/nvim-lua/plenary.nvim",
+	-- "https://github.com/rktjmp/lush.nvim",
 
 	-- "https://www.github.com/nvim-tree/nvim-tree.lua",
 	"https://github.com/mikavilpas/yazi.nvim",

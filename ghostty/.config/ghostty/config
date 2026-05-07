@@ -2,24 +2,32 @@
 #
 # command = "$SHELL -l -c 'tmux attach || tmux; clear; exec $SHELL -l'"
 
-# font-family = Cascadia Mono
+font-family = Hack Nerd Font Mono
+font-family-bold = Hack Nerd Font Mono Bold
+font-family-italic = Hack Nerd Font Mono Italic
+font-family-bold-italic = Hack Nerd Font Mono Bold Italic
 
-# font-family = Mononoki Nerd Font Mono
-# font-family-bold = Mononoki Nerd Font Bold
-# font-family-italic = Mononoki Nerd Font Italic
-# font-family-bold-italic = Mononoki Nerd Font Bold Italic
+# font-style = "Regular"
+# font-style-bold = "ExtraBold"
+# font-style-italic = "Italic"
+# font-style-bold-italic = "Bold Italic"
 
-font-family = JetBrainsMono Nerd Font Mono
-font-family-bold = JetBrainsMono Nerd Font Mono SemiBold
-font-family-italic = JetBrainsMono Nerd Font Mono Italic
-font-family-bold-italic = JetBrainsMono Nerd Font Mono SemiBold Italic
+# font-family = JetBrainsMono Nerd Font Mono
+# font-family-bold = JetBrainsMono Nerd Font Mono SemiBold
+# font-family-italic = JetBrainsMono Nerd Font Mono Italic
+# font-family-bold-italic = JetBrainsMono Nerd Font Mono SemiBold Italic
+
+# font-family = FiraCode Nerd Font Mono
+# font-family-bold = Hasklug Nerd Font Mono Black
+# font-family-italic = Hasklug Nerd Font Mono Med Italic
+# font-family-bold-italic = Hasklug Nerd Font Mono Bold Italic
 
 font-size = 18
-adjust-cell-width=-5%
-adjust-cell-height=-5%
-font-feature = -liga
-font-feature = -clig
-font-feature = -calt
+adjust-cell-width=-6%
+adjust-cell-height=+8%
+# font-feature = -liga
+# font-feature = -clig
+# font-feature = -calt
 
 theme = Catppuccin Macchiato
 # theme = Catppuccin Mocha
@@ -64,8 +72,8 @@ foreground = #ffffff
 # font-thicken = true
 # font-thicken-strength = 128
 
-# background-opacity = 0.6
 # background-blur = 16
+# background-opacity = 0.75
 
 window-padding-balance = true
 window-padding-x = 10

@@ -25,6 +25,10 @@
       "rev": "dd3f588bacbeb041be6facf1742e42097f62165d",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
+    "lush.nvim": {
+      "rev": "9c60ec2279d62487d942ce095e49006af28eed6e",
+      "src": "https://github.com/rktjmp/lush.nvim"
+    },
     "mason-lspconfig.nvim": {
       "rev": "0c2823e0418f3d9230ff8b201c976e84de1cb401",
       "src": "https://github.com/mason-org/mason-lspconfig.nvim"
@@ -85,6 +89,10 @@
     "yazi.nvim": {
       "rev": "250c16e80c1f9d885052b525312baf37f0695ebb",
       "src": "https://github.com/mikavilpas/yazi.nvim"
+    },
+    "zenbones.nvim": {
+      "rev": "321543e581cd73d0ee43327d8a7c02a420f640cf",
+      "src": "https://github.com/zenbones-theme/zenbones.nvim"
     }
   }
 }

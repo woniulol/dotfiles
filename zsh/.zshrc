@@ -106,4 +106,4 @@ bindkey -M vicmd 'gc' gc_commit_widget
 
 . "$HOME/.local/bin/env"
 
-eval "$(starship init zsh)"
+# eval "$(starship init zsh)"
