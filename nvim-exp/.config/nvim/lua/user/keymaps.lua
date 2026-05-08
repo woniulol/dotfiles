@@ -46,20 +46,13 @@ map("n", "<leader>al", function()
 	require("user.shp").focus_or_open()
 end, "delete buffer to arg list")
 
-map("n", "<leader>st", function()
-	vim.cmd.vnew()
-	vim.cmd.term()
-	vim.cmd.wincmd("L")
-	vim.cmd("startinsert")
+map("n", "<leader>sh", function()
+	require("user.sh").open()
+	vim.cmd.startinsert()
 end, "create small terminal")
 
-map("x", "<leader>ru", function()
-	vim.cmd('noautocmd normal! "vy')
-	local cmd = vim.fn.getreg("v")
-	vim.cmd("botright 15new")
-	vim.bo.buftype = "nofile"
-	vim.bo.bufhidden = "wipe"
-	vim.fn.jobstart({ vim.o.shell, "-i", "-c", cmd }, { term = true })
+map("x", "<leader>rs", function()
+	require("user.sh").run_selection()
 end, "run selection as shell command")
 
 map("t", "<C-\\><C-\\>", "<C-\\><C-n>", "exit terminal mode")
