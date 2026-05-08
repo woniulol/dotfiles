@@ -28,9 +28,11 @@ function vi_icon() {
   fi
 
   if [[ $KEYMAP == vicmd ]]; then
-    printf '%%F{#89b4fa}%s[N] > %%f' "$host_part"
+    # printf '%%F{#e0e2ea}%s[N] > %%f' "$host_part"
+    printf '[n] > ' "$host_part"
   else
-    printf '%%F{#a6e3a1}%s[I] > %%f' "$host_part"
+    # printf '%%F{#e0e2ea}%s[I] > %%f' "$host_part"
+    printf '[i] > ' "$host_part"
   fi
 }
 

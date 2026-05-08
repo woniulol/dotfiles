@@ -29,7 +29,8 @@ adjust-cell-height=+8%
 # font-feature = -clig
 # font-feature = -calt
 
-theme = Catppuccin Macchiato
+# theme = Catppuccin Macchiato
+theme = Black Metal (Dark Funeral)
 # theme = Catppuccin Mocha
 # theme = Catppuccin Frappe
 # theme = Catppuccin Latte
@@ -60,7 +61,7 @@ foreground = #ffffff
 # palette = 14=#94e2d5
 # palette = 15=#bac2de
 #
-# background = #1e1e2e
+background = #1e1e2e
 # foreground = #cdd6f4
 # cursor-color = #f5e0dc
 # cursor-text = #11111b
