@@ -30,44 +30,53 @@ adjust-cell-height=+8%
 # font-feature = -calt
 
 # theme = Catppuccin Macchiato
-theme = Black Metal (Dark Funeral)
+# theme = Black Metal (Dark Funeral)
 # theme = Catppuccin Mocha
 # theme = Catppuccin Frappe
 # theme = Catppuccin Latte
 # theme = TokyoNight Night
-# Increase visibility for Bright Black (Color 8)
-# This affects the dashes in ls -l and other UI elements
-palette = 7=#BDBDBD
-palette = 15=#ffffff
-# background = #000000
-foreground = #ffffff
-# cursor-color = #c6d0f5
 
-# palette = 0=#45475a
-# palette = 1=#f38ba8
-# palette = 2=#a6e3a1
-# palette = 3=#f9e2af
-# palette = 4=#89b4fa
-# palette = 5=#f5c2e7
-# palette = 6=#94e2d5
-# palette = 7=#a6adc8
-#
-# palette = 8=#585b70
-# palette = 9=#f38ba8
-# palette = 10=#a6e3a1
-# palette = 11=#f9e2af
-# palette = 12=#89b4fa
-# palette = 13=#f5c2e7
-# palette = 14=#94e2d5
-# palette = 15=#bac2de
-#
-background = #1e1e2e
-# foreground = #cdd6f4
-# cursor-color = #f5e0dc
-# cursor-text = #11111b
-# selection-background = #353749
-# selection-foreground = #cdd6f4
-# split-divider-color = #313244
+# ─── 16-color palette ──────────────────────────────────────────────
+# black
+palette = 0=#454560
+# red
+palette = 1=#ff7a8a
+# green
+palette = 2=#a8e078
+# yellow
+palette = 3=#ffd778
+# blue
+palette = 4=#7fb5ff
+# magenta
+palette = 5=#c89aff
+# cyan
+palette = 6=#7fd8e6
+# white
+palette = 7=#eaecf4
+
+# bright black (comments, prompt chrome)
+palette = 8=#6e6e88
+# bright red
+palette = 9=#ff95a4
+# bright green
+palette = 10=#bce690
+# bright yellow
+palette = 11=#ffe28c
+# bright blue
+palette = 12=#9bc9ff
+# bright magenta
+palette = 13=#d8b3ff
+# bright cyan
+palette = 14=#9bdfeb
+# bright white
+palette = 15=#ffffff
+# ─── special colors (not part of the 16) ───────────────────────────
+background             = #1e1e2e
+foreground             = #ffffff
+cursor-color           = #ffffff
+cursor-text            = #1e1e2e
+selection-background   = #3a3f5c
+selection-foreground   = #ffffff
 
 # MacOS only
 # font-thicken = true

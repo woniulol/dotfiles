@@ -86,6 +86,28 @@ vim.lsp.config("basedpyright", {
 
 vim.lsp.config("ruff", {})
 
+vim.filetype.add({
+	filename = {
+		[".zshrc"] = "zsh",
+		[".zprofile"] = "zsh",
+		[".zshenv"] = "zsh",
+		[".zlogin"] = "zsh",
+	},
+	extension = {
+		zsh = "zsh",
+	},
+})
+
+vim.lsp.config("bashls", {
+	settings = {
+		bashIde = {
+			globPattern = "**/*@(.sh|.inc|.bash|.command|.zsh|.zshrc|.zprofile|.zshenv|.zlogin)",
+		},
+	},
+	filetypes = { "bash", "sh", "zsh" },
+	root_markers = { ".git" },
+})
+
 vim.lsp.config("ty", {
 	settings = {
 		ty = {
@@ -99,4 +121,5 @@ vim.lsp.enable({
 	"basedpyright",
 	"ruff",
 	"ty",
+	"bashls",
 })
