@@ -11,10 +11,6 @@ bindkey -M viins '^H' backward-delete-char
 # ======= BLOCK END =======
 
 # ====== BLOCK START ======
-# Single-line prompt: host, venv, then mode arrow.
-# Slots 10/12 are reserved for vi mode (matches nvim statusline).
-#   host=brred(9)  cwd=cyan(6)  venv=magenta(5)
-#   arrow: brblue(12) in normal, brgreen(10) in insert
 autoload -Uz add-zsh-hook
 setopt PROMPT_SUBST
 
@@ -36,39 +32,37 @@ _prompt_arrow() {
 
 PS1='$(_prompt_arrow)%F{9}$(_prompt_host)%f%F{5}$(_prompt_venv)%f > '
 
+# Refresh the prompt based on key map (insert mode) change.
 zle-keymap-select() { zle reset-prompt }
-zle-line-init()     { zle -K viins; zle reset-prompt }
+
+# Each time when a new line in zsh.
+zle-line-init() { zle -K viins; zle reset-prompt }
+
 zle -N zle-keymap-select
 zle -N zle-line-init
 # ======= BLOCK END =======
 
-# editor
+export PATH="$PATH:/usr/local/bin"
 export PATH="$PATH:/opt/nvim-macos-arm64/bin"
 # export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 export EDITOR="nvim"
 export VISUAL="nvim"
 
-# Add usr/local/bin
-export PATH="$PATH:/usr/local/bin"
-# Add Visual Studio Code (code)
-# export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-
-# Homebrew
-eval "$(/opt/homebrew/bin/brew shellenv)"
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 bindkey '^y' autosuggest-accept
 
 # fzf
 # Set up fzf key bindings and fuzzy completion
+# curl -LO https://github.com/junegunn/fzf/releases/download/v0.72.0/fzf-0.72.0-darwin_arm64.tar.gz
+# tar -xzf fzf-0.72.0-darwin_arm64.tar.gz -C ~/.local/bin
+# rm fzf-0.72.0-darwin_arm64.tar.gz
 #
 # <C-r>: command history
 # - filtered based on current input
 # <C-t>: files list (use tab to select many)
 # <A-c>: find the path and cd to it
 source <(fzf --zsh)
-# export FZF_DEFAULT_COMMAND="fd . --hidden --exclude .git"
-# export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-# export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
 
 fw() {
   aerospace list-windows --all \
@@ -88,7 +82,7 @@ alias cc="claude"
 alias v="nvim"
 
 # Color for zsh-autosuggestion virtual text.
-export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=244"
+# export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=244"
 
 # Open buffer line in editor with v
 autoload -Uz edit-command-line
