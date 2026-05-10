@@ -80,6 +80,11 @@ map("n", "<leader>h", function()
 	vim.opt.hlsearch = true
 end, "highlight word under cursor")
 
+map("n", "<leader>ts", function()
+	vim.opt_local.spell = not vim.opt_local.spell:get()
+	print("Toggle spell check: " .. tostring(vim.opt_local.spell:get()))
+end, "toggle spell check")
+
 map("n", "<leader>fmt", vim.lsp.buf.format, "lsp format")
 map("n", "<leader>D", vim.diagnostic.setloclist, "open diagnostic list")
 map("n", "<leader>d", vim.diagnostic.open_float, "Line diagnostics")

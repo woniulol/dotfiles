@@ -14,6 +14,20 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 	end,
 })
 
+-- Render spell errors with a flat underline instead of undercurl (which
+-- some terminals draw as a row of `~`). Re-applied on ColorScheme so a
+-- theme load doesn't clobber it.
+local function _flat_spell_hl()
+	for _, group in ipairs({ "SpellBad", "SpellCap", "SpellRare", "SpellLocal" }) do
+		local hl = vim.api.nvim_get_hl(0, { name = group, link = false })
+		hl.undercurl = false
+		hl.underline = true
+		vim.api.nvim_set_hl(0, group, hl)
+	end
+end
+_flat_spell_hl()
+vim.api.nvim_create_autocmd("ColorScheme", { callback = _flat_spell_hl })
+
 vim.cmd.colorscheme("default")
 -- vim.cmd.colorscheme("nord")
 -- vim.cmd.colorscheme("catppuccin")
