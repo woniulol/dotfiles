@@ -2,7 +2,9 @@
 bindkey -v
 
 # NOTE: `KEYTIMEOUT` is not a env var but only meant for zsh.
-KEYTIMEOUT=1
+#
+# DO NOT set too low, ssh session cannot afford.
+KEYTIMEOUT=10
 
 # Allow deleting chars before insert mode is entered. Solve the problem where backspace
 # cannot delete the history command loaded from `k` in normal mode.
