@@ -42,9 +42,7 @@ zle -N zle-keymap-select
 zle -N zle-line-init
 # ======= BLOCK END =======
 
-export PATH="$PATH:/usr/local/bin"
-export PATH="$PATH:/opt/nvim-macos-arm64/bin"
-# export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
+export PATH="$HOME/.local/bin:$PATH"
 export EDITOR="nvim"
 export VISUAL="nvim"
 
@@ -104,7 +102,7 @@ gc_commit_widget() {
 zle -N gc_commit_widget
 bindkey -M vicmd 'gc' gc_commit_widget
 
-. "${HOME}/.local/bin/env"
+# . "${HOME}/.local/bin/env"
 
 # ====== BLOCK START ======
 # History configuration

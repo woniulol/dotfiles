@@ -106,7 +106,8 @@ shell-integration-features = no-cursor
 # Be careful that this will multiplied by the tmux scroll number of line.
 mouse-scroll-multiplier = 1
 
-term = xterm-256color
+# term = xterm-256color
+shell-integration-features = ssh-env,ssh-terminfo,no-cursor
 
 # Keybindings
 # Shift + cmd + \ -> view all tabs.
