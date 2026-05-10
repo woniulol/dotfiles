@@ -32,7 +32,7 @@ _prompt_arrow() {
   fi
 }
 
-PS1='$(_prompt_arrow)%F{9}$(_prompt_host)%f%F{5}$(_prompt_venv)%f > '
+PS1='$(_prompt_arrow)%F{6}$(_prompt_host)%f%F{5}$(_prompt_venv)%f > '
 
 # Refresh the prompt based on key map (insert mode) change.
 zle-keymap-select() { zle reset-prompt }
