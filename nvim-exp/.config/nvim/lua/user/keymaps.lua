@@ -55,7 +55,8 @@ map("x", "<leader>rs", function()
 	require("user.sh").run_selection()
 end, "run selection as shell command")
 
-map("t", "<C-\\><C-\\>", "<C-\\><C-n>", "exit terminal mode")
+-- Save <C-\\> for zmx
+map("t", "<C-]>", "<C-\\><C-n>", "exit terminal mode")
 
 map("n", "<leader>yp", function()
 	local path = vim.fn.expand("%:p")

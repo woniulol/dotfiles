@@ -24,6 +24,7 @@ add-zsh-hook precmd _set_term_title
 
 _prompt_host()  { [[ -n "$SSH_CONNECTION" ]] && print -n " ${HOST%%.*}" }
 _prompt_venv()  { [[ -n "$VIRTUAL_ENV"   ]] && print -n " (${VIRTUAL_ENV:t})" }
+_prompt_zmx()   { [[ -n "$ZMX_SESSION"   ]] && print -n "[$ZMX_SESSION] " }
 _prompt_arrow() {
   if [[ $KEYMAP == vicmd ]]; then
     print -n '%F{12}[n]%f'
@@ -32,7 +33,7 @@ _prompt_arrow() {
   fi
 }
 
-PS1='$(_prompt_arrow)%F{6}$(_prompt_host)%f%F{5}$(_prompt_venv)%f > '
+PS1='%F{3}$(_prompt_zmx)%f$(_prompt_arrow)%F{6}$(_prompt_host)%f%F{5}$(_prompt_venv)%f > '
 
 # Refresh the prompt based on key map (insert mode) change.
 zle-keymap-select() { zle reset-prompt }
@@ -136,3 +137,46 @@ bindkey -M viins '^J' history-beginning-search-forward
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+zmx-select() {
+  local display
+  display=$(zmx list 2>/dev/null | while IFS=$'\t' read -r name pid clients created dir; do
+    name=${name#*name=}
+    created=${created#*created=}
+    dir=${dir#*start_dir=}
+
+    if [[ "$created" =~ ^[0-9]+$ ]]; then
+      created=$(date -d "@$created" +"%Y-%m-%d %H:%M:%S" 2>/dev/null || echo "$created")
+    fi
+
+    printf "%-20s  %-19s  %s\n" "$name" "$created" "$dir"
+  done)
+
+  local output query key selected session_name
+  output=$({ [[ -n "$display" ]] && echo "$display"; } | fzf \
+    --print-query \
+    --expect=ctrl-o \
+    --height=80% \
+    --reverse \
+    --prompt="zmx> " \
+    --header="Enter: select | Ctrl-O: create new" \
+  )
+  local rc=$?
+
+  query=$(echo "$output" | sed -n '1p')
+  key=$(echo "$output" | sed -n '2p')
+  selected=$(echo "$output" | sed -n '3p')
+
+  if [[ "$key" == "ctrl-o" && -n "$query" ]]; then
+    session_name="$query"
+  elif [[ $rc -eq 0 && -n "$selected" ]]; then
+    session_name=$(echo "$selected" | awk '{print $1}')
+  elif [[ -n "$query" ]]; then
+    session_name="$query"
+  else
+    return 130
+  fi
+
+  zmx attach "$session_name"
+}
+

@@ -74,3 +74,20 @@ git clone https://github.com/sxyazi/yazi.git
 cd yazi
 cargo build --release --locked
 mv target/release/yazi target/release/ya "${HOME}/.local/bin/"
+
+
+# Docker user group
+sudo groupadd docker
+sudo usermod -aG docker ${USER}
+
+# Google CLI
+sudo apt-get update
+curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /usr/share/keyrings/cloud.google.gpg
+echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+sudo apt-get update && sudo apt-get install google-cloud-cli
+
+# zmx
+curl -LO https://zmx.sh/a/zmx-0.5.0-linux-x86_64.tar.gz
+tar -xvzf zmx-0.5.0-linux-x86_64.tar.gz
+mv zmx "${HOME}/.local/bin/"
+
