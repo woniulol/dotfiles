@@ -105,6 +105,7 @@ zle -N gc_commit_widget
 bindkey -M vicmd 'gc' gc_commit_widget
 
 # . "${HOME}/.local/bin/env"
+. "${HOME}/.cargo/env"
 
 # ====== BLOCK START ======
 # History configuration
@@ -130,5 +131,8 @@ bindkey -M viins '^K' history-beginning-search-backward
 bindkey -M viins '^J' history-beginning-search-forward
 # ======= BLOCK END =======
 
-
 # eval "$(starship init zsh)"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

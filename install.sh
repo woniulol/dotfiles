@@ -67,9 +67,10 @@ cd
 cd dotfiles
 stow nvim-exp
 
-
-
-
-
-
-
+# yazi
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+rustup update
+git clone https://github.com/sxyazi/yazi.git
+cd yazi
+cargo build --release --locked
+mv target/release/yazi target/release/ya "${HOME}/.local/bin/"
