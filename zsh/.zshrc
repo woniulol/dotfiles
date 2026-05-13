@@ -70,18 +70,6 @@ fw() {
   | fzf --bind "enter:become(aerospace focus --window-id {1})"
 }
 
-# Alias
-alias ls='eza -lh --group-directories-first --icons=auto'
-alias lsa='ls -a'
-alias lt='eza --tree --level=2 --long --icons --git'
-alias lta='lt -a'
-alias ff="fzf --preview 'bat --style=numbers --color=always {}'"
-alias sv="source .venv/bin/activate"
-alias dv="deactivate"
-alias gfa="git fetch --all"
-alias cc="claude"
-alias v="nvim"
-
 # Color for zsh-autosuggestion virtual text.
 # export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=244"
 
@@ -179,4 +167,18 @@ zmx-select() {
 
   zmx attach "$session_name"
 }
+
+# Alias
+alias ls='eza -lh --group-directories-first --icons=auto'
+alias lsa='ls -a'
+alias lt='eza --tree --level=2 --long --icons --git'
+alias lta='lt -a'
+alias ff="fzf --preview 'bat --style=numbers --color=always {}'"
+alias sv="source .venv/bin/activate"
+alias dv="deactivate"
+alias gfa="git fetch --all"
+alias gs="git status"
+alias cc="claude"
+alias v="nvim"
+alias zz="zmx-select"
 

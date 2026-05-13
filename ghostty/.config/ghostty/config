@@ -82,8 +82,8 @@ selection-foreground   = #ffffff
 # font-thicken = true
 # font-thicken-strength = 128
 
-# background-blur = 16
-# background-opacity = 0.75
+background-blur = 8
+background-opacity = 0.88
 
 window-padding-balance = true
 window-padding-x = 10
@@ -111,32 +111,31 @@ shell-integration-features = ssh-env,ssh-terminfo,no-cursor
 
 # Keybindings
 # Shift + cmd + \ -> view all tabs.
-keybind = cmd+g>s>h=new_split:left
-keybind = cmd+g>s>j=new_split:down
-keybind = cmd+g>s>k=new_split:up
-keybind = cmd+g>s>l=new_split:right
+keybind = cmd+b>s>h=new_split:left
+keybind = cmd+b>s>j=new_split:down
+keybind = cmd+b>s>k=new_split:up
+keybind = cmd+b>s>l=new_split:right
+keybind = cmd+b>s>e=equalize_splits
 
-# keybind = cmd+h=goto_split:left
-# keybind = cmd+j=goto_split:down
-# keybind = cmd+k=goto_split:up
-# keybind = cmd+l=goto_split:right
-
-keybind = cmd+g>s>e=equalize_splits
+keybind = cmd+h=goto_split:left
+keybind = cmd+j=goto_split:down
+keybind = cmd+k=goto_split:up
+keybind = cmd+l=goto_split:right
 
 # Tmux leader key
 # Check the plain test input with `xxd -psd`
 # all cmd is mapped to meta(option/alt)
-keybind = cmd+b=text:\x1b\x62
-keybind = cmd+h=text:\x1b\x68
-keybind = cmd+j=text:\x1b\x6a
-keybind = cmd+k=text:\x1b\x6b
-keybind = cmd+l=text:\x1b\x6c
+# keybind = cmd+b=text:\x1b\x62
+# keybind = cmd+h=text:\x1b\x68
+# keybind = cmd+j=text:\x1b\x6a
+# keybind = cmd+k=text:\x1b\x6b
+# keybind = cmd+l=text:\x1b\x6c
+#
+# keybind = cmd+digit_1=text:\x1b\x31
+# keybind = cmd+digit_2=text:\x1b\x32
+# keybind = cmd+digit_3=text:\x1b\x33
+# keybind = cmd+digit_4=text:\x1b\x34
+# keybind = cmd+digit_5=text:\x1b\x35
 
-keybind = cmd+digit_1=text:\x1b\x31
-keybind = cmd+digit_2=text:\x1b\x32
-keybind = cmd+digit_3=text:\x1b\x33
-keybind = cmd+digit_4=text:\x1b\x34
-keybind = cmd+digit_5=text:\x1b\x35
-
-keybind = cmd+n=unbind
+# keybind = cmd+n=unbind
 # keybind = cmd+t=unbind
