@@ -1,5 +1,9 @@
 {
   "plugins": {
+    "Oshen.nvim": {
+      "rev": "0e9bdcf1bb2ee9dd98108884c280aea92690aa38",
+      "src": "https://github.com/54L1M/Oshen.nvim"
+    },
     "blink.cmp": {
       "rev": "78336bc89ee5365633bcf754d93df01678b5c08f",
       "src": "https://github.com/saghen/blink.cmp",
@@ -25,6 +29,14 @@
       "rev": "dd3f588bacbeb041be6facf1742e42097f62165d",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
+    "koda.nvim": {
+      "rev": "ebc4763bd6ce88bc049070472b029fe2d8f17a8b",
+      "src": "https://github.com/oskarnurm/koda.nvim"
+    },
+    "lumon.nvim": {
+      "rev": "f8ce95213e57b379089da23abc36a1fc39936b63",
+      "src": "https://github.com/omacom-io/lumon.nvim"
+    },
     "lush.nvim": {
       "rev": "9c60ec2279d62487d942ce095e49006af28eed6e",
       "src": "https://github.com/rktjmp/lush.nvim"
@@ -40,6 +52,10 @@
     "mini.surround": {
       "rev": "2715e04bea3ec9244f15b421dc5b18c0fe326210",
       "src": "https://github.com/nvim-mini/mini.surround"
+    },
+    "nightfox.nvim": {
+      "rev": "26b61b1f856ec37cae3cb64f5690adb955f246a1",
+      "src": "https://github.com/EdenEast/nightfox.nvim"
     },
     "nord.nvim": {
       "rev": "80c1e5321505aeb22b7a9f23eb82f1e193c12470",
@@ -69,6 +85,10 @@
     "plenary.nvim": {
       "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
       "src": "https://github.com/nvim-lua/plenary.nvim"
+    },
+    "silence.nvim": {
+      "rev": "42dfa6dd0877856d1779d222f13c1cdc0dc86edf",
+      "src": "https://github.com/danhat1020/silence.nvim"
     },
     "todo-comments.nvim": {
       "rev": "31e3c38ce9b29781e4422fc0322eb0a21f4e8668",

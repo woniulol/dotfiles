@@ -13,9 +13,15 @@ vim.api.nvim_create_autocmd("PackChanged", {
 vim.pack.add({
 	-- "https://github.com/shaunsingh/nord.nvim",
 	-- "https://github.com/vague-theme/vague.nvim",
-	-- "https://github.com/catppuccin/nvim",
+	"https://github.com/catppuccin/nvim",
 	-- "https://github.com/zenbones-theme/zenbones.nvim",
+	-- "https://github.com/danhat1020/silence.nvim",
+	-- "https://github.com/54L1M/Oshen.nvim",
+	-- "https://github.com/EdenEast/nightfox.nvim",
 	-- "https://github.com/rmehri01/onenord.nvim",
+	-- "https://github.com/vague-theme/vague.nvim",
+	-- "https://github.com/omacom-io/lumon.nvim",
+	-- "https://github.com/oskarnurm/koda.nvim",
 
 	-- deps
 	"https://github.com/nvim-lua/plenary.nvim",
