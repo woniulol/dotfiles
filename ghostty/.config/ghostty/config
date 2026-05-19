@@ -2,10 +2,31 @@
 #
 # command = "$SHELL -l -c 'tmux attach || tmux; clear; exec $SHELL -l'"
 
-font-family = Hack Nerd Font Mono
-font-family-bold = Hack Nerd Font Mono Bold
-font-family-italic = Hack Nerd Font Mono Italic
-font-family-bold-italic = Hack Nerd Font Mono Bold Italic
+# font-family = Hack Nerd Font Mono
+# font-family-bold = Hack Nerd Font Mono Bold
+# font-family-italic = Hack Nerd Font Mono Italic
+# font-family-bold-italic = Hack Nerd Font Mono Bold Italic
+
+# SF Mono
+#   SF Mono Bold
+#   SF Mono Bold Italic
+#   SF Mono Heavy
+#   SF Mono Heavy Italic
+#   SF Mono Light
+#   SF Mono Light Italic
+#   SF Mono Medium
+#   SF Mono Medium Italic
+#   SF Mono Regular
+#   SF Mono Regular Italic
+#   SF Mono Semibold
+#   SF Mono Semibold Italic
+
+
+# DO NOT use SF for commercial purpose
+font-family = SF Mono
+font-family-bold = SF Mono Bold
+font-family-italic = SF Mono Regular Italic
+font-family-bold-italic = SF Mono Bold Italic
 
 # font-style = "Regular"
 # font-style-bold = "ExtraBold"
@@ -22,9 +43,9 @@ font-family-bold-italic = Hack Nerd Font Mono Bold Italic
 # font-family-italic = Hasklug Nerd Font Mono Med Italic
 # font-family-bold-italic = Hasklug Nerd Font Mono Bold Italic
 
-font-size = 18
-adjust-cell-width=-6%
-adjust-cell-height=+8%
+font-size = 16
+# adjust-cell-width=+5%
+adjust-cell-height=+10%
 # font-feature = -liga
 # font-feature = -clig
 # font-feature = -calt
@@ -79,11 +100,11 @@ selection-background   = #3a3f5c
 selection-foreground   = #ffffff
 
 # MacOS only
-# font-thicken = true
-# font-thicken-strength = 128
+font-thicken = true
+font-thicken-strength = 128
 
-background-blur = 8
-background-opacity = 0.88
+# background-blur = 8
+# background-opacity = 0.75
 
 window-padding-balance = true
 window-padding-x = 10

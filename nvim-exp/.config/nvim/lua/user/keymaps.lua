@@ -46,10 +46,17 @@ map("n", "<leader>al", function()
 	require("user.shp").focus_or_open()
 end, "delete buffer to arg list")
 
-map("n", "<leader>sh", function()
+local function open_sh_terminal()
 	require("user.sh").open()
 	vim.cmd.startinsert()
-end, "create small terminal")
+end
+
+local function toggle_sh_terminal()
+	require("user.sh").toggle()
+end
+
+map("n", "<leader>sh", open_sh_terminal, "create small terminal")
+map({ "n", "t" }, "<C-`>", toggle_sh_terminal, "toggle small terminal")
 
 map("x", "<leader>rs", function()
 	require("user.sh").run_selection()

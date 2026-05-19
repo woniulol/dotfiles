@@ -13,7 +13,7 @@ vim.api.nvim_create_autocmd("PackChanged", {
 vim.pack.add({
 	-- "https://github.com/shaunsingh/nord.nvim",
 	-- "https://github.com/vague-theme/vague.nvim",
-	"https://github.com/catppuccin/nvim",
+	-- "https://github.com/catppuccin/nvim",
 	-- "https://github.com/zenbones-theme/zenbones.nvim",
 	-- "https://github.com/danhat1020/silence.nvim",
 	-- "https://github.com/54L1M/Oshen.nvim",
@@ -22,6 +22,7 @@ vim.pack.add({
 	-- "https://github.com/vague-theme/vague.nvim",
 	-- "https://github.com/omacom-io/lumon.nvim",
 	-- "https://github.com/oskarnurm/koda.nvim",
+	-- "https://github.com/projekt0n/github-nvim-theme",
 
 	-- deps
 	"https://github.com/nvim-lua/plenary.nvim",
@@ -48,6 +49,7 @@ vim.pack.add({
 	"https://github.com/sindrets/diffview.nvim",
 	"https://github.com/mcauley-penney/visual-whitespace.nvim",
 	"https://github.com/folke/todo-comments.nvim",
+	"https://github.com/windwp/nvim-autopairs",
 })
 
 -- prepend mason's bin dir so lspconfig can spawn already-installed servers
@@ -72,6 +74,7 @@ vim.schedule(function()
 	require("plugins.visual-whitespace")
 	require("plugins.todo-comments")
 	require("plugins.yazi")
+	require("plugins.autopairs")
 end)
 
 -- lazy: load mason the first time you open the cmdline (covers :Mason*)

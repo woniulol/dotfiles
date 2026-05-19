@@ -74,16 +74,6 @@ vim.lsp.config("lua_ls", {
 	end,
 })
 
-vim.lsp.config("basedpyright", {
-	settings = {
-		basedpyright = {
-			analysis = {
-				ignore = { "*" }, -- Only use pure lsp capabilities. Prefer `ty` for type checking.
-			},
-		},
-	},
-})
-
 vim.lsp.config("ruff", {})
 
 vim.filetype.add({
@@ -121,6 +111,11 @@ vim.lsp.config("ts_ls", {})
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
+vim.lsp.config("jsonls", {
+	capabilities = capabilities,
+	filetypes = { "json", "jsonc", "jsonl" },
+})
+
 vim.lsp.config("html", {
 	capabilities = capabilities,
 })
@@ -129,13 +124,17 @@ vim.lsp.config("cssls", {
 	capabilities = capabilities,
 })
 
+vim.lsp.config("pyright", {})
+
 vim.lsp.enable({
 	"lua_ls",
-	"basedpyright",
 	"ruff",
+	"pyright",
 	"ty",
 	"bashls",
 	"ts_ls",
 	"html",
 	"cssls",
+	"jsonls",
+	"biome",
 })

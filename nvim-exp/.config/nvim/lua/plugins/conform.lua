@@ -2,6 +2,7 @@ require("conform").setup({
 	formatters_by_ft = {
 		lua = { "stylua" },
 		python = { "ruff_format" },
+		json = { "biome" },
 		--     markdown = { "prettierd" },
 		["*"] = { "trim_whitespace" },
 	},

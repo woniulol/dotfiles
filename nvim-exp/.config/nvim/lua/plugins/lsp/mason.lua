@@ -17,7 +17,6 @@ mason_lspconfig.setup({
 		"lua_ls",
 		"stylua",
 		"ty",
-		-- "pyright",
 		-- "basedpyright",
 		"pyright",
 		"rust_analyzer",
@@ -32,5 +31,7 @@ mason_lspconfig.setup({
 		"cssls",
 		"ts_ls",
 		-- "bqls",
+		"jsonls",
+		"biome",
 	},
 })

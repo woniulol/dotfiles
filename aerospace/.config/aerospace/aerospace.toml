@@ -8,7 +8,7 @@ config-version = 2
 # Run Sketchybar together with AeroSpace
 # sketchybar has a built-in detection of already running process,
 # so it won't be run twice on AeroSpace restart
-# 
+#
 # Install sketchybar and JankyBorders
 after-startup-command = [
     'exec-and-forget sketchybar',
@@ -78,13 +78,13 @@ on-mode-changed = []
 #                 See:
 #                 https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
-    inner.horizontal = 8
-    inner.vertical =   8
-    outer.left =       8
-    outer.bottom =     8
+    inner.horizontal = 5
+    inner.vertical =   5
+    outer.left =       5
+    outer.bottom =     5
     # outer.top =        [ { monitor."S2721QS" = 100 }, { monitor."HDMI" = 45 }, 6 ]
-    outer.top =        8
-    outer.right =      8
+    outer.top =        5
+    outer.right =      5
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -187,6 +187,7 @@ on-mode-changed = []
     alt-shift-l = ['join-with right', 'mode main']
 
 
+# aerospace list-windows --all --format "%{app-bundle-id} | %{app-name}"
 # Finder window always on floating mode.
 [[on-window-detected]]
 if.app-id = 'com.apple.finder'
@@ -196,4 +197,13 @@ run = 'layout floating'
 [[on-window-detected]]
 if.app-id = 'com.apple.SFSymbols'
 run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Terminal'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.tencent.qq'
+run = 'layout floating'
+
 

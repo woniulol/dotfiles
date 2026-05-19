@@ -91,3 +91,13 @@ curl -LO https://zmx.sh/a/zmx-0.5.0-linux-x86_64.tar.gz
 tar -xvzf zmx-0.5.0-linux-x86_64.tar.gz
 mv zmx "${HOME}/.local/bin/"
 
+# btop
+curl -LO https://github.com/aristocratos/btop/releases/download/v1.4.7/btop-x86_64-unknown-linux-musl.tar.gz
+tar -xvzf btop-x86_64-unknown-linux-musl.tar.gz
+cd btop
+sudo sudo make install
+sudo make setcap
+ln -sf /usr/local/bin/btop ~/.local/bin/btop
+
+
+
