@@ -1,4 +1,9 @@
 **/.DS_Store
+**/node_modules/
+
+# Pi runtime/sensitive files
+pi/.pi/agent/auth.json
+pi/.pi/agent/sessions/
 
 # Don't track the tmux plugins, but keep the folder there.
 tmux/.tmux/plugins/*
