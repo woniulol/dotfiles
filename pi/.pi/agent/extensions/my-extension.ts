@@ -3,9 +3,9 @@ import { Type } from "typebox";
 
 export default function(pi: ExtensionAPI) {
 
-    pi.on("session_start", async (_event, ctx) => {
-        ctx.ui.notify("Extension loaded!", "info");
-    });
+    // pi.on("session_start", async (_event, ctx) => {
+    //     ctx.ui.notify("Extension loaded!", "info");
+    // });
 
     pi.on("tool_call", async (event, ctx) => {
         if (event.toolName === "bash" && event.input.command?.includes("rm -rf")) {

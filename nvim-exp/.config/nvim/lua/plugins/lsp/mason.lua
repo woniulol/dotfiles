@@ -1,5 +1,6 @@
 local mason = require("mason")
 local mason_lspconfig = require("mason-lspconfig")
+local mason_tool_installer = require("mason-tool-installer")
 
 mason.setup({
 	ui = {
@@ -13,7 +14,11 @@ mason.setup({
 
 mason_lspconfig.setup({
 	automatic_enable = false,
+})
+
+mason_tool_installer.setup({
 	ensure_installed = {
+		"prettier",
 		"lua_ls",
 		"stylua",
 		"ty",
@@ -24,7 +29,6 @@ mason_lspconfig.setup({
 		"pyrefly",
 		-- brew install marksman
 		-- "marksman",
-		-- "prettierd",
 		-- https://github.com/bash-lsp/bash-language-server/tree/main
 		"bashls",
 		"html",
@@ -35,3 +39,5 @@ mason_lspconfig.setup({
 		"biome",
 	},
 })
+
+mason_tool_installer.check_install(false)

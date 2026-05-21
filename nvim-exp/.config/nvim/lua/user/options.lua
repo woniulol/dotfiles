@@ -35,7 +35,7 @@ vim.o.inccommand = "split" -- preview substitutions live, as you type!
 -- visual
 vim.opt.cursorline = true -- highlight cursor line
 vim.opt.signcolumn = "yes" -- ruler
-vim.opt.colorcolumn = "88" -- ruler show at n char
+vim.opt.colorcolumn = "89" -- ruler show at n char
 vim.opt.showmatch = true -- highlight matching parenthesis
 vim.opt.showmode = false -- status line already show the mode
 vim.opt.wrap = true -- wrap lines by default

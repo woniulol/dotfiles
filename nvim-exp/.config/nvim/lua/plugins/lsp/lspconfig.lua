@@ -126,6 +126,8 @@ vim.lsp.config("cssls", {
 
 vim.lsp.config("pyright", {})
 
+vim.lsp.config("prettier", {})
+
 vim.lsp.enable({
 	"lua_ls",
 	"ruff",
@@ -137,4 +139,5 @@ vim.lsp.enable({
 	"cssls",
 	"jsonls",
 	"biome",
+	"prettier",
 })
