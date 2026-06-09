@@ -2,11 +2,6 @@
 #
 # command = "$SHELL -l -c 'tmux attach || tmux; clear; exec $SHELL -l'"
 
-# font-family = Hack Nerd Font Mono
-# font-family-bold = Hack Nerd Font Mono Bold
-# font-family-italic = Hack Nerd Font Mono Italic
-# font-family-bold-italic = Hack Nerd Font Mono Bold Italic
-
 # SF Mono
 #   SF Mono Bold
 #   SF Mono Bold Italic
@@ -21,34 +16,34 @@
 #   SF Mono Semibold
 #   SF Mono Semibold Italic
 
-
 # DO NOT use SF for commercial purpose
-font-family = SF Mono
-font-family-bold = SF Mono Bold
-font-family-italic = SF Mono Regular Italic
-font-family-bold-italic = SF Mono Bold Italic
+# font-family = SF Mono
+# font-family-bold = SF Mono Bold
+# font-family-italic = SF Mono Regular Italic
+# font-family-bold-italic = SF Mono Bold Italic
 
-# font-style = "Regular"
-# font-style-bold = "ExtraBold"
-# font-style-italic = "Italic"
-# font-style-bold-italic = "Bold Italic"
 
 # font-family = JetBrainsMono Nerd Font Mono
 # font-family-bold = JetBrainsMono Nerd Font Mono SemiBold
 # font-family-italic = JetBrainsMono Nerd Font Mono Italic
 # font-family-bold-italic = JetBrainsMono Nerd Font Mono SemiBold Italic
 
-# font-family = FiraCode Nerd Font Mono
-# font-family-bold = Hasklug Nerd Font Mono Black
-# font-family-italic = Hasklug Nerd Font Mono Med Italic
-# font-family-bold-italic = Hasklug Nerd Font Mono Bold Italic
+font-family = ZedMono Nerd Font Mono
+# font-family-bold = ZedMono Nerd Font Mono
+# font-family-italic = ZedMono Nerd Font Mono
+# font-family-bold-italic = ZedMono Nerd Font Mono
 
-font-size = 16
+font-style = "Light"
+font-style-bold = "Bold"
+font-style-italic = "Italic"
+font-style-bold-italic = "Bold Italic"
+
+font-size = 18
 # adjust-cell-width=+5%
-adjust-cell-height=+10%
+adjust-cell-height=-5%
 # font-feature = -liga
 # font-feature = -clig
-# font-feature = -calt
+font-feature = -calt
 
 # theme = Catppuccin Macchiato
 # theme = Black Metal (Dark Funeral)
@@ -103,8 +98,8 @@ selection-foreground   = #ffffff
 font-thicken = true
 font-thicken-strength = 128
 
-# background-blur = 8
-# background-opacity = 0.75
+background-blur = 0
+background-opacity = 0.85
 
 window-padding-balance = true
 window-padding-x = 10

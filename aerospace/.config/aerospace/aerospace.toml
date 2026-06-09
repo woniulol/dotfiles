@@ -4,21 +4,11 @@
 # Config version for compatibility and deprecations
 # Fallback value (if you omit the key): config-version = 1
 config-version = 2
-
-# Run Sketchybar together with AeroSpace
-# sketchybar has a built-in detection of already running process,
-# so it won't be run twice on AeroSpace restart
 #
-# Install sketchybar and JankyBorders
-after-startup-command = [
-    'exec-and-forget sketchybar',
-    'exec-and-forget borders active_color=0xfffab387 width=6',
-]
-
-# Notify Sketchybar about workspace change
-exec-on-workspace-change = ['/bin/bash', '-c',
-    'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
-]
+# Install and JankyBorders
+# after-startup-command = [
+#     'exec-and-forget borders active_color=0xfff8f9fa inactive_color=0xff24273a width=5',
+# ]
 
 # Start AeroSpace at login
 start-at-login = true
@@ -78,8 +68,8 @@ on-mode-changed = []
 #                 See:
 #                 https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
-    inner.horizontal = 5
-    inner.vertical =   5
+    inner.horizontal = 6
+    inner.vertical =   6
     outer.left =       5
     outer.bottom =     5
     # outer.top =        [ { monitor."S2721QS" = 100 }, { monitor."HDMI" = 45 }, 6 ]
@@ -205,5 +195,19 @@ run = 'layout floating'
 [[on-window-detected]]
 if.app-id = 'com.tencent.qq'
 run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.netease.163music'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'net.whatsapp.WhatsApp'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.obsproject.obs-studio'
+run = 'layout floating'
+
+
 
 

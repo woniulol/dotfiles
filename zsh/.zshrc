@@ -22,7 +22,7 @@ export VIRTUAL_ENV_DISABLE_PROMPT=1
 _set_term_title() { print -Pn '\e]0;%~\a' }
 add-zsh-hook precmd _set_term_title
 
-_prompt_host()  { [[ -n "$SSH_CONNECTION" ]] && print -n " ${HOST%%.*}" }
+_prompt_host()  { [[ -n "$SSH_CONNECTION" ]] && print -n " ${USER}@${HOST%%.*}" }
 _prompt_venv()  { [[ -n "$VIRTUAL_ENV"   ]] && print -n " (${VIRTUAL_ENV:t})" }
 _prompt_zmx()   { [[ -n "$ZMX_SESSION"   ]] && print -n "[$ZMX_SESSION] " }
 _prompt_arrow() {

@@ -23,6 +23,8 @@ vim.pack.add({
 	-- "https://github.com/omacom-io/lumon.nvim",
 	-- "https://github.com/oskarnurm/koda.nvim",
 	-- "https://github.com/projekt0n/github-nvim-theme",
+	-- "https://github.com/t184256/vim-boring",
+	-- "https://github.com/rktjmp/lush.nvim",
 
 	-- deps
 	"https://github.com/nvim-lua/plenary.nvim",
@@ -45,6 +47,9 @@ vim.pack.add({
 	"https://github.com/mason-org/mason.nvim",
 	"https://github.com/mason-org/mason-lspconfig.nvim",
 	"https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim",
+
+	"https://github.com/MeanderingProgrammer/render-markdown.nvim",
+	"https://github.com/nvim-tree/nvim-web-devicons",
 
 	"https://github.com/stevearc/conform.nvim",
 	"https://github.com/sindrets/diffview.nvim",

@@ -5,7 +5,7 @@ local loaded = false
 local function fzf()
 	local f = require("fzf-lua")
 	if not loaded then
-		f.setup({ ui_select = true })
+		f.setup({ ui_select = true, fzf_colors = true })
 		loaded = true
 	end
 	return f
