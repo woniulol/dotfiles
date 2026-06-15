@@ -127,6 +127,7 @@ vim.lsp.config("cssls", {
 vim.lsp.config("pyright", {})
 
 vim.lsp.config("prettier", {})
+vim.lsp.config("postgres_lsp", {})
 
 vim.lsp.enable({
 	"lua_ls",
@@ -140,4 +141,5 @@ vim.lsp.enable({
 	"jsonls",
 	"biome",
 	"prettier",
+	"postgres_lsp",
 })
