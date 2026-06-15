@@ -98,8 +98,8 @@ selection-foreground   = #ffffff
 font-thicken = true
 font-thicken-strength = 128
 
-background-blur = 0
-background-opacity = 0.85
+background-blur = 10
+background-opacity = 0.75
 
 window-padding-balance = true
 window-padding-x = 10

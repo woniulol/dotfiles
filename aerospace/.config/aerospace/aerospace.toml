@@ -208,6 +208,11 @@ run = 'layout floating'
 if.app-id = 'com.obsproject.obs-studio'
 run = 'layout floating'
 
+[[on-window-detected]]
+if.app-id = 'com.postmanlabs.mac'
+run = 'layout floating'
+
+
 
 
 

@@ -88,6 +88,8 @@ sudo apt-get update && sudo apt-get install google-cloud-cli
 
 # zmx
 curl -LO https://zmx.sh/a/zmx-0.5.0-linux-x86_64.tar.gz
+#curl -LO https://zmx.sh/a/zmx-0.5.0-macos-aarch64.tar.gz
+
 tar -xvzf zmx-0.5.0-linux-x86_64.tar.gz
 mv zmx "${HOME}/.local/bin/"
 
@@ -98,6 +100,9 @@ cd btop
 sudo sudo make install
 sudo make setcap
 ln -sf /usr/local/bin/btop ~/.local/bin/btop
+
+# uv
+curl -LsSf https://astral.sh/uv/install.sh | sh
 
 
 

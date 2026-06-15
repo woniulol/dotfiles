@@ -25,6 +25,7 @@ vim.pack.add({
 	-- "https://github.com/projekt0n/github-nvim-theme",
 	-- "https://github.com/t184256/vim-boring",
 	-- "https://github.com/rktjmp/lush.nvim",
+	"https://github.com/folke/snacks.nvim",
 
 	-- deps
 	"https://github.com/nvim-lua/plenary.nvim",
@@ -81,6 +82,7 @@ vim.schedule(function()
 	require("plugins.todo-comments")
 	require("plugins.yazi")
 	require("plugins.autopairs")
+	-- require("plugins.snacks")
 end)
 
 -- lazy: load mason the first time you open the cmdline (covers :Mason*)

@@ -33,6 +33,10 @@
       "rev": "dd3f588bacbeb041be6facf1742e42097f62165d",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
+    "indent-blankline.nvim": {
+      "rev": "d28a3f70721c79e3c5f6693057ae929f3d9c0a03",
+      "src": "https://github.com/lukas-reineke/indent-blankline.nvim"
+    },
     "koda.nvim": {
       "rev": "ebc4763bd6ce88bc049070472b029fe2d8f17a8b",
       "src": "https://github.com/oskarnurm/koda.nvim"
@@ -121,6 +125,10 @@
     "silence.nvim": {
       "rev": "42dfa6dd0877856d1779d222f13c1cdc0dc86edf",
       "src": "https://github.com/danhat1020/silence.nvim"
+    },
+    "snacks.nvim": {
+      "rev": "882c996cf28183f4d63640de0b4c02ec886d01f2",
+      "src": "https://github.com/folke/snacks.nvim"
     },
     "todo-comments.nvim": {
       "rev": "31e3c38ce9b29781e4422fc0322eb0a21f4e8668",
