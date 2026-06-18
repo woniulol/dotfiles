@@ -82,7 +82,7 @@ vim.schedule(function()
 	require("plugins.todo-comments")
 	require("plugins.yazi")
 	require("plugins.autopairs")
-	-- require("plugins.snacks")
+	require("plugins.snacks")
 end)
 
 -- lazy: load mason the first time you open the cmdline (covers :Mason*)

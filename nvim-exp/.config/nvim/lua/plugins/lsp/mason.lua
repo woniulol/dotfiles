@@ -21,9 +21,9 @@ mason_tool_installer.setup({
 		"prettier",
 		"lua_ls",
 		"stylua",
-		"ty",
+		-- "ty",
 		-- "basedpyright",
-		"pyright",
+		-- "pyright",
 		"rust_analyzer",
 		"ruff",
 		"pyrefly",
@@ -38,6 +38,7 @@ mason_tool_installer.setup({
 		"jsonls",
 		"biome",
 		"postgres-language-server",
+		"marksman",
 	},
 })
 

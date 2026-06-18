@@ -125,15 +125,17 @@ vim.lsp.config("cssls", {
 })
 
 vim.lsp.config("pyright", {})
-
+vim.lsp.config("pyrefly", {})
 vim.lsp.config("prettier", {})
 vim.lsp.config("postgres_lsp", {})
+vim.lsp.config("marksman", {})
 
 vim.lsp.enable({
 	"lua_ls",
 	"ruff",
-	"pyright",
-	"ty",
+	-- "pyright",
+	"pyrefly",
+	-- "ty",
 	"bashls",
 	"ts_ls",
 	"html",
@@ -142,4 +144,5 @@ vim.lsp.enable({
 	"biome",
 	"prettier",
 	"postgres_lsp",
+	"marksman",
 })
