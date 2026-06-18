@@ -128,6 +128,9 @@ vim.lsp.config("pyright", {})
 vim.lsp.config("pyrefly", {})
 vim.lsp.config("prettier", {})
 vim.lsp.config("postgres_lsp", {})
+
+-- Marksman only work in a git repo or with a `.marksman.toml` in the root dir.
+-- See https://github.com/artempyanykh/marksman/blob/main/docs/features.md#workspace-folders-project-roots-and-single-file-mode
 vim.lsp.config("marksman", {})
 
 vim.lsp.enable({
