@@ -11,6 +11,13 @@ vim.api.nvim_create_autocmd("PackChanged", {
 })
 
 vim.pack.add({
+	{
+		src = "https://github.com/rose-pine/neovim",
+		name = "rose-pine",
+	},
+	-- "https://github.com/ramojus/mellifluous.nvim",
+	-- "https://github.com/vague-theme/vague.nvim",
+	-- "https://github.com/webhooked/kanso.nvim",
 	-- "https://github.com/shaunsingh/nord.nvim",
 	-- "https://github.com/vague-theme/vague.nvim",
 	-- "https://github.com/catppuccin/nvim",

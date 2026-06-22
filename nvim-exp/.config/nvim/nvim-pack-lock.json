@@ -37,6 +37,10 @@
       "rev": "d28a3f70721c79e3c5f6693057ae929f3d9c0a03",
       "src": "https://github.com/lukas-reineke/indent-blankline.nvim"
     },
+    "kanso.nvim": {
+      "rev": "1afbbb449aa0254823dbe1932e3cbb51886ff9fe",
+      "src": "https://github.com/webhooked/kanso.nvim"
+    },
     "koda.nvim": {
       "rev": "ebc4763bd6ce88bc049070472b029fe2d8f17a8b",
       "src": "https://github.com/oskarnurm/koda.nvim"
@@ -68,6 +72,10 @@
     "mason.nvim": {
       "rev": "cb8445f8ce85d957416c106b780efd51c6298f89",
       "src": "https://github.com/mason-org/mason.nvim"
+    },
+    "mellifluous.nvim": {
+      "rev": "ec0575bdb63594c5e7fba6eb9607b009aa1fb74e",
+      "src": "https://github.com/ramojus/mellifluous.nvim"
     },
     "mini.surround": {
       "rev": "2715e04bea3ec9244f15b421dc5b18c0fe326210",
@@ -121,6 +129,10 @@
     "render-markdown.nvim": {
       "rev": "5adf0895310c1904e5abfaad40a2baad7fe44a07",
       "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
+    },
+    "rose-pine": {
+      "rev": "ff483051a47e27d84bdef47703538df1ed9f4a47",
+      "src": "https://github.com/rose-pine/neovim"
     },
     "silence.nvim": {
       "rev": "42dfa6dd0877856d1779d222f13c1cdc0dc86edf",

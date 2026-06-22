@@ -1,44 +1,91 @@
 -- transparent bg
-vim.api.nvim_create_autocmd("ColorScheme", {
-	pattern = "*",
-	callback = function()
-		vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-		vim.api.nvim_set_hl(0, "Pmenu", { bg = "none" })
-		vim.api.nvim_set_hl(0, "BlinkCmpMenu", { bg = "none" })
-		-- vim.api.nvim_set_hl(0, "DiffAdd", { bg = "none" })
-		-- vim.api.nvim_set_hl(0, "DiffChange", { bg = "none" })
-		-- vim.api.nvim_set_hl(0, "DiffDelete", { bg = "none" })
-		-- vim.api.nvim_set_hl(0, "DiffText", { bg = "none", bold = true })
-		vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
-	end,
-})
+-- vim.api.nvim_create_autocmd("ColorScheme", {
+-- 	pattern = "*",
+-- 	callback = function()
+-- 		vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+-- 		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+-- 		vim.api.nvim_set_hl(0, "Pmenu", { bg = "none" })
+-- 		vim.api.nvim_set_hl(0, "BlinkCmpMenu", { bg = "none" })
+--      vim.api.nvim_set_hl(0, "DiffAdd", { bg = "none" })
+--      vim.api.nvim_set_hl(0, "DiffChange", { bg = "none" })
+--      vim.api.nvim_set_hl(0, "DiffDelete", { bg = "none" })
+--      vim.api.nvim_set_hl(0, "DiffText", { bg = "none", bold = true })
+-- 		vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
+-- 	end,
+-- })
 
 -- Render spell errors with a flat underline instead of undercurl (which
 -- some terminals draw as a row of `~`). Re-applied on ColorScheme so a
 -- theme load doesn't clobber it.
-local function _flat_spell_hl()
-	for _, group in ipairs({ "SpellBad", "SpellCap", "SpellRare", "SpellLocal" }) do
-		local hl = vim.api.nvim_get_hl(0, { name = group, link = false })
-		hl.undercurl = false
-		hl.underline = true
-		vim.api.nvim_set_hl(0, group, hl)
-	end
-end
-_flat_spell_hl()
-vim.api.nvim_create_autocmd("ColorScheme", { callback = _flat_spell_hl })
+-- local function _flat_spell_hl()
+-- 	for _, group in ipairs({ "SpellBad", "SpellCap", "SpellRare", "SpellLocal" }) do
+-- 		local hl = vim.api.nvim_get_hl(0, { name = group, link = false })
+-- 		hl.undercurl = false
+-- 		hl.underline = true
+-- 		-- cterm attrs live in a separate subtable; clear undercurl there too
+-- 		hl.cterm = hl.cterm or {}
+-- 		hl.cterm.undercurl = false
+-- 		hl.cterm.underline = true
+-- 		vim.api.nvim_set_hl(0, group, hl)
+-- 	end
+-- end
+-- _flat_spell_hl()
+-- vim.api.nvim_create_autocmd("ColorScheme", { callback = _flat_spell_hl })
 
-local function _unbold_visual()
-	for _, group in ipairs({ "Visual", "VisualNOS" }) do
-		local hl = vim.api.nvim_get_hl(0, { name = group, link = false })
-		hl.bold = false
-		vim.api.nvim_set_hl(0, group, hl)
-	end
-end
-_unbold_visual()
-vim.api.nvim_create_autocmd("ColorScheme", { callback = _unbold_visual })
+-- local function _unbold_visual()
+-- 	for _, group in ipairs({ "Visual", "VisualNOS" }) do
+-- 		local hl = vim.api.nvim_get_hl(0, { name = group, link = false })
+-- 		hl.bold = false
+-- 		vim.api.nvim_set_hl(0, group, hl)
+-- 	end
+-- end
+-- _unbold_visual()
+-- vim.api.nvim_create_autocmd("ColorScheme", { callback = _unbold_visual })
 
-vim.cmd.colorscheme("default")
+-- vim.cmd.colorscheme("default")
+--
+-- require("mellifluous").setup({})
+-- vim.cmd.colorscheme("mellifluous")
+
+-- require("vague").setup({
+-- 	transparent = true,
+-- })
+-- vim.cmd.colorscheme("vague")
+-- vim.cmd.colorscheme("kanso-mist")
+
+require("rose-pine").setup({
+	variant = "moon", -- auto, main, moon, or dawn
+	enable = {
+		terminal = true,
+		legacy_highlights = true, -- Improve compatibility for previous versions of Neovim
+		migrations = true, -- Handle deprecated options automatically
+	},
+	styles = {
+		bold = true,
+		italic = true,
+		transparency = true,
+	},
+	palette = {
+		-- Override the builtin palette per variant
+		moon = {
+			pine = "#6f9fd8",
+		},
+	},
+	highlight_groups = {
+		StatusLineTerm = { fg = "subtle", bg = "none" },
+		StatusLineTermNC = { fg = "subtle", bg = "none" },
+		-- Diagnostic virtual text in italic (inherits existing fg)
+		DiagnosticVirtualTextError = { italic = true },
+		DiagnosticVirtualTextWarn = { italic = true },
+		DiagnosticVirtualTextInfo = { italic = true },
+		DiagnosticVirtualTextHint = { italic = true },
+		-- Comment = { fg = "foam" },
+		-- StatusLine = { fg = "love", bg = "love", blend = 15 },
+		-- VertSplit = { fg = "muted", bg = "muted" },
+		-- Visual = { fg = "base", bg = "text", inherit = false },
+	},
+})
+vim.cmd("colorscheme rose-pine")
 -- vim.cmd.colorscheme("boring")
 -- vim.cmd.colorscheme("Oshen")
 -- vim.cmd.colorscheme("koda")

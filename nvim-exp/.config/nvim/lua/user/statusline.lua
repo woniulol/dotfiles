@@ -32,13 +32,16 @@ local function set_mode_hls()
 	vim.api.nvim_set_hl(0, "ModeVisual", { fg = "#c89aff", ctermfg = 5, bold = true }) -- slot 5  — magenta
 	vim.api.nvim_set_hl(0, "ModeReplace", { fg = "#ff95a4", ctermfg = 9, bold = true }) -- slot 9  — bright red
 	vim.api.nvim_set_hl(0, "ModeCommand", { fg = "#ffe28c", ctermfg = 11, bold = true }) -- slot 11 — bright yellow
+	vim.api.nvim_set_hl(0, "ModeTerminal", { fg = "#7fd6c2", ctermfg = 14, bold = true }) -- slot 14 — bright cyan
 end
 set_mode_hls()
 vim.api.nvim_create_autocmd("ColorScheme", { callback = set_mode_hls })
 
 function _G.mode_hl()
 	local m = vim.fn.mode()
-	if m == "i" then
+	if m == "t" or m == "nt" then
+		return "%#ModeTerminal#"
+	elseif m == "i" then
 		return "%#ModeInsert#"
 	elseif m == "v" or m == "V" or m == "\22" then
 		return "%#ModeVisual#"
