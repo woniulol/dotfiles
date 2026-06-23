@@ -64,6 +64,8 @@ node -v # Should print "v24.15.0".
 npm -v # Should print "11.12.1".
 
 cd
+# for fzf-lua
+sudo apt install -y fd-find ripgrep
 cd dotfiles
 stow nvim-exp
 

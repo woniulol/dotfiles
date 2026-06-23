@@ -1,6 +1,17 @@
 -- lazy: fzf-lua is loaded on first keypress, not at startup
 local map = vim.keymap.set
 
+local grep_rg_opts = table.concat({
+	"--column",
+	"--line-number",
+	"--no-heading",
+	"--color=always",
+	"--smart-case",
+	"--hidden",
+	"--max-columns=4096",
+	"-e",
+}, " ")
+
 local loaded = false
 local function fzf()
 	local f = require("fzf-lua")
@@ -20,11 +31,19 @@ map("n", "<leader>oc", function()
 end, { desc = "FZF Files" })
 
 map("n", "<leader>lg", function()
-	fzf().live_grep()
+	fzf().live_grep({ rg_opts = grep_rg_opts })
 end, { desc = "FZF Live Grep" })
 
+map("n", "<leader>lw", function()
+	fzf().grep_cword({ rg_opts = grep_rg_opts })
+end, { desc = "FZF Grep Word" })
+
 map("n", "<leader>fb", function()
-	fzf().buffers()
+	fzf().buffers({
+		fzf_opts = {
+			["--header-lines"] = false,
+		},
+	})
 end, { desc = "FZF Buffers" })
 
 map("n", "<leader>fh", function()
