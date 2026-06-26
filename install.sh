@@ -106,5 +106,8 @@ ln -sf /usr/local/bin/btop ~/.local/bin/btop
 # uv
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
-
+# Ubuntu wifi
+sudo nano /etc/NetworkManager/conf.d/default-wifi-powersave-on.conf
+# set wifi.powersave = 2
+# sudo systemctl restart NetworkManager
 
