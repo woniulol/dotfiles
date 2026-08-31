@@ -134,7 +134,16 @@ vim.lsp.config("postgres_lsp", {})
 
 -- Marksman only work in a git repo or with a `.marksman.toml` in the root dir.
 -- See https://github.com/artempyanykh/marksman/blob/main/docs/features.md#workspace-folders-project-roots-and-single-file-mode
-vim.lsp.config("marksman", {})
+vim.lsp.config("marksman", {
+	-- Only attach to buffers backed by a real file.
+	root_dir = function(bufnr, on_dir)
+		local name = vim.api.nvim_buf_get_name(bufnr)
+		if name == "" or name:find("://", 1, true) then
+			return
+		end
+		on_dir(nil) -- fall back to marksman's own root_markers
+	end,
+})
 
 vim.lsp.config("terraformls", {})
 vim.lsp.config("rust_analyzer", {})
