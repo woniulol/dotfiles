@@ -25,39 +25,57 @@ end
 
 -- Mode-aware highlights — hex values mirror the Ghostty palette slots
 -- (since termguicolors=true uses RGB, not the palette directly).
--- ctermfg kept as a fallback for non-truecolor terminals.
+-- The mode color is the background; text sits on it in the dark ground color.
+-- cterm values kept as a fallback for non-truecolor terminals.
+-- Each mode gets a plain group for the whole line plus a bold variant
+-- used for the mode indicator itself.
+local mode_colors = {
+	Normal = { "#9bc9ff", 12 }, -- slot 12 — bright blue
+	Insert = { "#bce690", 10 }, -- slot 10 — bright green
+	Visual = { "#c89aff", 5 }, -- slot 5  — magenta
+	Replace = { "#ff95a4", 9 }, -- slot 9  — bright red
+	Command = { "#ffe28c", 11 }, -- slot 11 — bright yellow
+	Terminal = { "#7fd6c2", 14 }, -- slot 14 — bright cyan
+}
+
+local fg_on_mode = { "#1e1e2e", 0 } -- crust, matches colors.lua
+
 local function set_mode_hls()
-	vim.api.nvim_set_hl(0, "ModeNormal", { fg = "#9bc9ff", ctermfg = 12, bold = true }) -- slot 12 — bright blue
-	vim.api.nvim_set_hl(0, "ModeInsert", { fg = "#bce690", ctermfg = 10, bold = true }) -- slot 10 — bright green
-	vim.api.nvim_set_hl(0, "ModeVisual", { fg = "#c89aff", ctermfg = 5, bold = true }) -- slot 5  — magenta
-	vim.api.nvim_set_hl(0, "ModeReplace", { fg = "#ff95a4", ctermfg = 9, bold = true }) -- slot 9  — bright red
-	vim.api.nvim_set_hl(0, "ModeCommand", { fg = "#ffe28c", ctermfg = 11, bold = true }) -- slot 11 — bright yellow
-	vim.api.nvim_set_hl(0, "ModeTerminal", { fg = "#7fd6c2", ctermfg = 14, bold = true }) -- slot 14 — bright cyan
+	for name, c in pairs(mode_colors) do
+		local hl = { fg = fg_on_mode[1], ctermfg = fg_on_mode[2], bg = c[1], ctermbg = c[2] }
+		vim.api.nvim_set_hl(0, "Mode" .. name, hl)
+		vim.api.nvim_set_hl(0, "Mode" .. name .. "Bold", vim.tbl_extend("force", hl, { bold = true }))
+	end
 end
 set_mode_hls()
 vim.api.nvim_create_autocmd("ColorScheme", { callback = set_mode_hls })
 
-function _G.mode_hl()
+local function mode_name()
 	local m = vim.fn.mode()
 	if m == "t" or m == "nt" then
-		return "%#ModeTerminal#"
+		return "Terminal"
 	elseif m == "i" then
-		return "%#ModeInsert#"
+		return "Insert"
 	elseif m == "v" or m == "V" or m == "\22" then
-		return "%#ModeVisual#"
+		return "Visual"
 	elseif m == "R" then
-		return "%#ModeReplace#"
+		return "Replace"
 	elseif m == "c" then
-		return "%#ModeCommand#"
+		return "Command"
 	else
-		return "%#ModeNormal#"
+		return "Normal"
 	end
 end
 
+-- suffix picks the variant, e.g. "Bold" for the mode indicator
+function _G.mode_hl(suffix)
+	return "%#Mode" .. mode_name() .. (suffix or "") .. "#"
+end
+
 vim.opt.statusline = table.concat({
-	"%{%v:lua.mode_hl()%}",
+	"%{%v:lua.mode_hl('Bold')%}",
 	" [%{mode()}] ",
-	"%#StatusLine#",
+	"%{%v:lua.mode_hl()%}",
 	" %{v:lua.git_branch()}",
 	" %{v:lua.diag_status()}",
 	"%=",

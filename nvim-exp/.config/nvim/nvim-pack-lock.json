@@ -9,6 +9,11 @@
       "src": "https://github.com/saghen/blink.cmp",
       "version": "1.0.0 - 2.0.0"
     },
+    "bqls.nvim": {
+      "rev": "6b011a0c0ecc526ad91d626a14ae267cb8878839",
+      "src": "https://github.com/kitagry/bqls.nvim",
+      "version": "'main'"
+    },
     "conform.nvim": {
       "rev": "dca1a190aa85f9065979ef35802fb77131911106",
       "src": "https://github.com/stevearc/conform.nvim"
@@ -49,6 +54,10 @@
       "rev": "52c193bb912b782ebe3c348e38e81f15458b500d",
       "src": "https://github.com/ntk148v/komau.vim"
     },
+    "live-server.nvim": {
+      "rev": "f98bae79fd30274524412f7514549d84391d6bb2",
+      "src": "https://github.com/selimacerbas/live-server.nvim"
+    },
     "lumon.nvim": {
       "rev": "f8ce95213e57b379089da23abc36a1fc39936b63",
       "src": "https://github.com/omacom-io/lumon.nvim"
@@ -60,6 +69,10 @@
     "macos-classic.nvim": {
       "rev": "b86cdebf248110cd2a3e1b0ceff976a0898f04c5",
       "src": "https://github.com/martinconic/macos-classic.nvim"
+    },
+    "markdown-preview.nvim": {
+      "rev": "faf50b5e233df953a1fd6946d0a8d758bf2e38a1",
+      "src": "https://github.com/selimacerbas/markdown-preview.nvim"
     },
     "mason-lspconfig.nvim": {
       "rev": "0c2823e0418f3d9230ff8b201c976e84de1cb401",
@@ -81,6 +94,10 @@
       "rev": "2715e04bea3ec9244f15b421dc5b18c0fe326210",
       "src": "https://github.com/nvim-mini/mini.surround"
     },
+    "nekomi.nvim": {
+      "rev": "10e9abe21cc98d89ddbb0bdbb85c213007eba961",
+      "src": "https://github.com/kotsuban/nekomi.nvim"
+    },
     "nightfly": {
       "rev": "66050453bf40ac7eddc7a84dd15291db85fefc43",
       "src": "https://github.com/bluz71/vim-nightfly-colors"
@@ -92,6 +109,10 @@
     "nord.nvim": {
       "rev": "80c1e5321505aeb22b7a9f23eb82f1e193c12470",
       "src": "https://github.com/shaunsingh/nord.nvim"
+    },
+    "nordic.nvim": {
+      "rev": "9fb62116b891184049c50ca6ffb0d3bc100a1a6e",
+      "src": "https://github.com/AlexvZyl/nordic.nvim"
     },
     "nvim": {
       "rev": "426dbebe06b5c69fd846ceb17b42e12f890aedf1",
@@ -121,6 +142,10 @@
     "onenord.nvim": {
       "rev": "b68f1e66736840e837c2a77ebff59c932fcb70c7",
       "src": "https://github.com/rmehri01/onenord.nvim"
+    },
+    "oxocarbon.nvim": {
+      "rev": "7cc379b96fcbb4e75c5152906e0fccf81ce46590",
+      "src": "https://github.com/nyoom-engineering/oxocarbon.nvim"
     },
     "plenary.nvim": {
       "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",

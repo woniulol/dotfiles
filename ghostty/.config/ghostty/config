@@ -1,103 +1,23 @@
-# Try to attach/init the tmux session and allow exit tmux to have a plain terminal.
-#
-# command = "$SHELL -l -c 'tmux attach || tmux; clear; exec $SHELL -l'"
 
-# SF Mono
-#   SF Mono Bold
-#   SF Mono Bold Italic
-#   SF Mono Heavy
-#   SF Mono Heavy Italic
-#   SF Mono Light
-#   SF Mono Light Italic
-#   SF Mono Medium
-#   SF Mono Medium Italic
-#   SF Mono Regular
-#   SF Mono Regular Italic
-#   SF Mono Semibold
-#   SF Mono Semibold Italic
-
-# DO NOT use SF for commercial purpose
-# font-family = SF Mono
-# font-family-bold = SF Mono Bold
-# font-family-italic = SF Mono Regular Italic
-# font-family-bold-italic = SF Mono Bold Italic
 
 
 font-family = JetBrainsMono Nerd Font Mono
-# font-family-bold = JetBrainsMono Nerd Font Mono SemiBold
-# font-family-italic = JetBrainsMono Nerd Font Mono Italic
-# font-family-bold-italic = JetBrainsMono Nerd Font Mono SemiBold Italic
 
-# font-family = ZedMono Nerd Font Mono
-# font-family-bold = ZedMono Nerd Font Mono
-# font-family-italic = ZedMono Nerd Font Mono
-# font-family-bold-italic = ZedMono Nerd Font Mono
-
-font-style = "Light"
+font-style = "Regular"
 font-style-bold = "Bold"
 font-style-italic = "Italic"
 font-style-bold-italic = "Bold Italic"
 
-font-size = 18
-adjust-cell-width=-5%
-# adjust-cell-height=-5%
+font-size = 16
+adjust-cell-width=-10%
+adjust-cell-height=-10%
 font-feature = -liga
 font-feature = -clig
 font-feature = -calt
 
-# theme = Catppuccin Macchiato
-# theme = Black Metal (Dark Funeral)
-# theme = Catppuccin Mocha
-# theme = Catppuccin Frappe
-# theme = Catppuccin Latte
-# theme = TokyoNight Night
-theme = Rose Pine Moon
 
-# Rose Pine pine remap: #3e8fb0 -> #6f9fd8 (green ANSI slot)
-palette = 2=#6f9fd8
-palette = 10=#6f9fd8
-
-# ─── 16-color palette ──────────────────────────────────────────────
-# # black
-# palette = 0=#454560
-# # red
-# palette = 1=#ff7a8a
-# # green
-# palette = 2=#a8e078
-# # yellow
-# palette = 3=#ffd778
-# # blue
-# palette = 4=#7fb5ff
-# # magenta
-# palette = 5=#c89aff
-# # cyan
-# palette = 6=#7fd8e6
-# # white
-# palette = 7=#eaecf4
-#
-# # bright black (comments, prompt chrome)
-# palette = 8=#6e6e88
-# # bright red
-# palette = 9=#ff95a4
-# # bright green
-# palette = 10=#bce690
-# # bright yellow
-# palette = 11=#ffe28c
-# # bright blue
-# palette = 12=#9bc9ff
-# # bright magenta
-# palette = 13=#d8b3ff
-# # bright cyan
-# palette = 14=#9bdfeb
-# # bright white
-# palette = 15=#ffffff
-# # ─── special colors (not part of the 16) ───────────────────────────
-# background             = #1e1e2e
-# foreground             = #ffffff
-# cursor-color           = #ffffff
-# cursor-text            = #1e1e2e
-# selection-background   = #3a3f5c
-# selection-foreground   = #ffffff
+theme = nekomi
+cursor-color = #fec270
 
 # MacOS only
 font-thicken = true
@@ -120,9 +40,9 @@ copy-on-select = clipboard
 
 # custom-shader = shaders/cursor_smear_gradient.glsl
 # custom-shader = shaders/cursor_smear_fade.glsl
-custom-shader = shaders/cursor_smear_original.glsl
+# custom-shader = shaders/cursor_smear_original.glsl
 cursor-style = block
-shell-integration-features = no-cursor
+cursor-style-blink = false
 
 # Be careful that this will multiplied by the tmux scroll number of line.
 mouse-scroll-multiplier = 1

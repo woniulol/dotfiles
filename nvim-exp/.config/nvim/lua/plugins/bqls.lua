@@ -1,0 +1,5 @@
+-- require("bqls").setup({
+-- 	project_ids = { "mydpv-project", "dpv-aicto", "dpv-aicto-client", "dpv-iostaging-sat-prd" },
+-- })
+--
+-- vim.keymap.set("n", "<leader>db", require("bqls").sidebar.toggle)

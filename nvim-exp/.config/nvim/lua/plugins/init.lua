@@ -11,34 +11,12 @@ vim.api.nvim_create_autocmd("PackChanged", {
 })
 
 vim.pack.add({
-	{
-		src = "https://github.com/rose-pine/neovim",
-		name = "rose-pine",
-	},
-	-- "https://github.com/ramojus/mellifluous.nvim",
-	-- "https://github.com/vague-theme/vague.nvim",
-	-- "https://github.com/webhooked/kanso.nvim",
-	-- "https://github.com/shaunsingh/nord.nvim",
-	-- "https://github.com/vague-theme/vague.nvim",
-	-- "https://github.com/catppuccin/nvim",
-	-- "https://github.com/zenbones-theme/zenbones.nvim",
-	-- "https://github.com/danhat1020/silence.nvim",
-	-- "https://github.com/54L1M/Oshen.nvim",
-	-- "https://github.com/EdenEast/nightfox.nvim",
-	-- "https://github.com/rmehri01/onenord.nvim",
-	-- "https://github.com/vague-theme/vague.nvim",
-	-- "https://github.com/omacom-io/lumon.nvim",
-	-- "https://github.com/oskarnurm/koda.nvim",
-	-- "https://github.com/projekt0n/github-nvim-theme",
-	-- "https://github.com/t184256/vim-boring",
-	-- "https://github.com/rktjmp/lush.nvim",
+	"https://github.com/kotsuban/nekomi.nvim",
 	"https://github.com/folke/snacks.nvim",
 
 	-- deps
 	"https://github.com/nvim-lua/plenary.nvim",
-	-- "https://github.com/rktjmp/lush.nvim",
 
-	-- "https://www.github.com/nvim-tree/nvim-tree.lua",
 	"https://github.com/mikavilpas/yazi.nvim",
 	"https://www.github.com/ibhagwan/fzf-lua",
 	"https://github.com/nvim-mini/mini.surround",
@@ -58,12 +36,18 @@ vim.pack.add({
 
 	"https://github.com/MeanderingProgrammer/render-markdown.nvim",
 	"https://github.com/nvim-tree/nvim-web-devicons",
+	"https://github.com/selimacerbas/live-server.nvim",
+	"https://github.com/selimacerbas/markdown-preview.nvim",
 
 	"https://github.com/stevearc/conform.nvim",
 	"https://github.com/sindrets/diffview.nvim",
 	"https://github.com/mcauley-penney/visual-whitespace.nvim",
 	"https://github.com/folke/todo-comments.nvim",
 	"https://github.com/windwp/nvim-autopairs",
+	{
+		src = "https://github.com/kitagry/bqls.nvim",
+		version = "main",
+	},
 })
 
 -- prepend mason's bin dir so lspconfig can spawn already-installed servers
@@ -90,6 +74,7 @@ vim.schedule(function()
 	require("plugins.yazi")
 	require("plugins.autopairs")
 	require("plugins.snacks")
+	require("plugins.bqls")
 end)
 
 -- lazy: load mason the first time you open the cmdline (covers :Mason*)

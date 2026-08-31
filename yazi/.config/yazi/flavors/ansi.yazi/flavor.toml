@@ -1,0 +1,264 @@
+# vim:fileencoding=utf-8:foldmethod=marker
+
+# Palette-agnostic flavor: all colors are ANSI names that resolve against
+# the terminal's 16 palette slots (set by the ghostty theme), so yazi
+# follows whatever theme the terminal uses — same mechanism as fzf's
+# `--color=16`. Slot meanings here assume a catppuccin-like palette:
+# red/green/yellow/blue/magenta/cyan = accents, black/darkgray = muted
+# grays, white = main text.
+#
+# Tradeoff: the 16 slots have no "very dark crust" tone, so dark text on
+# accent backgrounds uses "black" (a muted gray), slightly lighter than a
+# hand-ported hex flavor would use.
+
+# : App {{{
+
+[app]
+overall = { bg = "reset" }
+
+# : }}}
+
+
+# : Manager {{{
+
+[mgr]
+cwd = { fg = "cyan" }
+
+# Find
+find_keyword  = { fg = "lightyellow", bold = true, italic = true, underline = true }
+find_position = { fg = "lightmagenta", bg = "reset", bold = true, italic = true }
+
+# Symlink
+symlink_target = { italic = true }
+
+# Marker
+marker_copied   = { fg = "lightblue", bg = "lightblue" }
+marker_cut      = { fg = "lightred", bg = "lightred" }
+marker_marked   = { fg = "red", bg = "red" }
+marker_selected = { fg = "lightyellow", bg = "lightyellow" }
+
+# Count
+count_copied   = { fg = "white", bg = "lightblue" }
+count_cut      = { fg = "white", bg = "lightred" }
+count_selected = { fg = "black", bg = "lightyellow" }
+
+# Border
+border_symbol = "│"
+border_style  = { fg = "black" }
+
+# Highlighting — syntax themes (tmTheme) can't follow the 16 slots, so the
+# preview ships Catppuccin Mocha's tmTheme (nekomi shares mocha's palette,
+# making it the closest off-the-shelf match). Path is relative to the
+# flavor directory.
+syntect_theme = "Catppuccin Mocha.tmTheme"
+
+# : }}}
+
+
+# : Tabs {{{
+
+[tabs]
+active   = { fg = "white", bg = "lightblue", bold = true }
+inactive = { fg = "lightblue", bg = "white" }
+
+# Separator
+sep_inner = { open = "", close = "" }
+sep_outer = { open = "", close = "" }
+
+# : }}}
+
+
+# : Mode {{{
+
+[mode]
+normal_main = { fg = "black", bg = "cyan", bold = true }
+normal_alt  = { fg = "black", bg = "white", bold = true }
+
+# Select mode
+select_main = { fg = "black", bg = "lightred", bold = true }
+select_alt  = { fg = "black", bg = "white", bold = true }
+
+# Unset mode
+unset_main = { fg = "black", bg = "lightred", bold = true }
+unset_alt  = { fg = "black", bg = "white", bold = true }
+
+# : }}}
+
+
+# : Indicator of hovered file {{{
+
+[indicator]
+parent  = { reversed = true }
+current = { reversed = true }
+preview = { underline = true }
+padding = { open = "", close = "" }
+
+# : }}}
+
+
+# : Status bar {{{
+
+[status]
+overall   = { bg = "reset" }
+sep_left  = { open = "", close = "" }
+sep_right = { open = "", close = "" }
+
+# Permissions
+perm_sep   = { fg = "darkgray" }
+perm_type  = { fg = "lightmagenta" }
+perm_read  = { fg = "lightyellow" }
+perm_write = { fg = "lightred" }
+perm_exec  = { fg = "cyan" }
+
+# Progress
+progress_label  = { fg = "white", bold = true }
+progress_normal = { fg = "lightblue", bg = "black" }
+progress_error  = { fg = "lightred", bg = "black" }
+
+# : }}}
+
+
+# : Which {{{
+
+[which]
+cols            = 3
+mask            = { bg = "black" }
+cand            = { fg = "cyan" }
+rest            = { fg = "darkgray" }
+desc            = { fg = "lightyellow" }
+separator       = "  "
+separator_style = { fg = "darkgray" }
+
+# : }}}
+
+
+# : Confirmation {{{
+
+[confirm]
+border     = { fg = "black" }
+title      = { fg = "lightred", bold = true }
+body       = { fg = "white" }
+list       = { fg = "white" }
+btn_yes    = { fg = "black", bg = "lightblue", bold = true }
+btn_no     = { fg = "black", bg = "white", bold = true }
+btn_labels = [ "  [y]es  ", "  (n)o  " ]
+
+# : }}}
+
+
+# : Spotter {{{
+
+[spot]
+border = { fg = "black" }
+title  = { fg = "cyan", bold = true }
+
+# Table
+tbl_col  = { fg = "cyan" }
+tbl_cell = { fg = "black", bg = "lightyellow", bold = true }
+
+# : }}}
+
+
+# : Notification {{{
+
+[notify]
+title_info  = { fg = "lightblue" }
+title_warn  = { fg = "lightyellow" }
+title_error = { fg = "lightred" }
+
+# Icons
+icon_info  = ""
+icon_warn  = ""
+icon_error = ""
+
+# : }}}
+
+
+# : Picker {{{
+
+[pick]
+border   = { fg = "lightblue" }
+active   = { fg = "lightmagenta", bold = true }
+inactive = { fg = "darkgray" }
+
+# : }}}
+
+
+# : Input {{{
+
+[input]
+border   = { fg = "lightblue" }
+title    = { bold = true }
+value    = { fg = "white" }
+selected = { reversed = true }
+
+# : }}}
+
+
+# : Completion {{{
+
+[cmp]
+border   = { fg = "lightblue" }
+active   = { bg = "white", fg = "black", bold = true }
+inactive = { fg = "darkgray" }
+
+# Icons
+icon_file    = ""
+icon_folder  = ""
+icon_command = ""
+
+# : }}}
+
+
+# : Task manager {{{
+
+[tasks]
+border  = { fg = "lightblue" }
+title   = { bold = true }
+hovered = { fg = "lightmagenta", bold = true, reversed = true }
+
+# : }}}
+
+
+# : Help menu {{{
+
+[help]
+on      = { fg = "cyan" }
+run     = { fg = "lightmagenta" }
+desc    = { fg = "lightyellow" }
+hovered = { reversed = true, bold = true }
+footer  = { fg = "black", bg = "white" }
+
+# : }}}
+
+
+# : File-specific styles {{{
+
+[filetype]
+rules = [
+  # Images
+  { mime = "image/*", fg = "lightmagenta" },
+
+  # Media
+  { mime = "{audio,video}/*", fg = "lightyellow" },
+
+  # Archives
+  { mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", fg = "lightred" },
+
+  # Documents
+  { mime = "application/{pdf,doc,rtf}", fg = "red" },
+
+  # Special files
+  { url = "*", is = "orphan", fg = "black", bg = "lightred" },
+  { url = "*", is = "exec", fg = "cyan" },
+
+  # Dummy files
+  { url = "*", is = "dummy", fg = "black", bg = "lightred" },
+  { url = "*/", is = "dummy", fg = "black", bg = "lightred" },
+
+  # Fallback
+  { url = "*", fg = "white" },
+  { url = "*/", fg = "lightblue" }
+]
+
+# : }}}

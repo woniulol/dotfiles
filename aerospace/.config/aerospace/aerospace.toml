@@ -68,13 +68,12 @@ on-mode-changed = []
 #                 See:
 #                 https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
-    inner.horizontal = 16
-    inner.vertical =   16
-    outer.left =       16
-    outer.bottom =     16
-    # outer.top =        [ { monitor."S2721QS" = 100 }, { monitor."HDMI" = 45 }, 6 ]
-    outer.top =        16
-    outer.right =      16
+    inner.horizontal = 8
+    inner.vertical =   8
+    outer.left =       8
+    outer.bottom =     8
+    outer.top =        8
+    outer.right =      8
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -212,7 +211,7 @@ run = 'layout floating'
 if.app-id = 'com.postmanlabs.mac'
 run = 'layout floating'
 
-
-
-
+[[on-window-detected]]
+if.app-id = 'com.apple.Notes'
+run = 'layout floating'
 

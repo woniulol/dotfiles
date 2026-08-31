@@ -5,17 +5,10 @@ require("conform").setup({
 		json = { "biome" },
 		typescript = { "prettier" },
 		markdown = { "prettier" },
-		["*"] = { "trim_whitespace" },
-	},
-	formatters = {
-		prettier = {
-			prepend_args = {
-				"--tab-width",
-				"4",
-				"--print-width",
-				"88",
-			},
-		},
+		yaml = { "prettier" },
+		terraform = { "terraform_fmt" },
+		rust = { "rustfmt" },
+		["*"] = { "trim_whitespace", "trim_newlines" },
 	},
 	format_after_save = {
 		timeout_ms = 500,

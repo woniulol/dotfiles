@@ -60,11 +60,9 @@ bindkey '^y' autosuggest-accept
 # rm fzf-0.72.0-darwin_arm64.tar.gz
 
 export FZF_DEFAULT_OPTS="
-    --color=fg:#908caa,bg:#232136,hl:#ea9a97
-    --color=fg+:#e0def4,bg+:#393552,hl+:#ea9a97
-    --color=border:#44415a,header:#3e8fb0,gutter:#232136
-    --color=spinner:#f6c177,info:#9ccfd8
-    --color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa"
+    --color=16,fg:-1,bg:-1,gutter:-1
+    --color=hl:13,hl+:13,pointer:13,marker:10
+    --color=spinner:11,info:12,header:12,border:8,prompt:7"
 
 # <C-r>: command history
 # - filtered based on current input
@@ -185,7 +183,18 @@ alias sv="source .venv/bin/activate"
 alias dv="deactivate"
 alias gfa="git fetch --all"
 alias gs="git status"
+alias gb="git branch --show-current"
 alias cc="claude"
 alias v="nvim"
 alias zz="zmx-select"
 
+
+# # The next line updates PATH for the Google Cloud SDK.
+# if [ -f '/Users/jnwang/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/jnwang/google-cloud-sdk/path.zsh.inc'; fi
+# if [ -f '/Users/jnwang/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/jnwang/google-cloud-sdk/completion.zsh.inc'; fi
+#
+# autoload -U +X bashcompinit && bashcompinit
+# complete -o nospace -C /Users/jnwang/.local/bin/terraform terraform
+#
+# # kimi-code
+# export PATH="/Users/jnwang/.kimi-code/bin:$PATH"

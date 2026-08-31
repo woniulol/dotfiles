@@ -85,6 +85,7 @@ vim.filetype.add({
 	},
 	extension = {
 		zsh = "zsh",
+		tf = "terraform",
 	},
 })
 
@@ -108,36 +109,73 @@ vim.lsp.config("ty", {
 
 vim.lsp.config("ts_ls", {})
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-
 vim.lsp.config("jsonls", {
-	capabilities = capabilities,
 	filetypes = { "json", "jsonc", "jsonl" },
 })
 
-vim.lsp.config("html", {
-	capabilities = capabilities,
-})
+vim.lsp.config("html", {})
 
-vim.lsp.config("cssls", {
-	capabilities = capabilities,
-})
+vim.lsp.config("cssls", {})
 
-vim.lsp.config("pyright", {})
+vim.lsp.config("pyright", {
+	-- settings = {
+	-- 	python = {
+	-- 		analysis = {
+	-- 			-- Disables type checking, leaving only intellisense
+	-- 			typeCheckingMode = "off",
+	-- 			-- Disables automatic import sorting so you can use tools like ruff
+	-- 			disableOrganizeImports = true,
+	-- 		},
+	-- 	},
+	-- },
+})
 vim.lsp.config("pyrefly", {})
-vim.lsp.config("prettier", {})
 vim.lsp.config("postgres_lsp", {})
 
 -- Marksman only work in a git repo or with a `.marksman.toml` in the root dir.
 -- See https://github.com/artempyanykh/marksman/blob/main/docs/features.md#workspace-folders-project-roots-and-single-file-mode
 vim.lsp.config("marksman", {})
 
+vim.lsp.config("terraformls", {})
+vim.lsp.config("rust_analyzer", {})
+
+-- vim.lsp.config("bqls", {
+-- 	settings = {
+-- 		project_id = "mydpv-project",
+-- 		location = "asia-southeast1",
+-- 	},
+-- })
+-- local function bqls_configure(project_id, location)
+-- 	for _, client in ipairs(vim.lsp.get_clients({ name = "bqls" })) do
+-- 		client:notify("workspace/didChangeConfiguration", {
+-- 			settings = { project_id = project_id, location = location },
+-- 		})
+-- 	end
+-- 	vim.notify(("bqls -> %s @ %s"):format(project_id, location))
+-- end
+-- vim.keymap.set("n", "<leader>dp", function()
+-- 	local presets = {
+-- 		{ project = "mydpv-project", location = "asia-southeast1" },
+-- 		{ project = "dpv-aicto", location = "asia-southeast1" },
+-- 		{ project = "dpv-aicto-client", location = "asia-southeast1" },
+-- 	}
+-- 	vim.ui.select(presets, {
+-- 		prompt = "bqls project",
+-- 		format_item = function(p)
+-- 			return ("%s @ %s"):format(p.project, p.location)
+-- 		end,
+-- 	}, function(choice)
+-- 		if choice then
+-- 			bqls_configure(choice.project, choice.location)
+-- 		end
+-- 	end)
+-- end, { desc = "Switch bqls project/location" })
+
 vim.lsp.enable({
 	"lua_ls",
 	"ruff",
-	-- "pyright",
-	"pyrefly",
+	"pyright",
+	-- "pyrefly",
 	-- "ty",
 	"bashls",
 	"ts_ls",
@@ -145,7 +183,9 @@ vim.lsp.enable({
 	"cssls",
 	"jsonls",
 	"biome",
-	"prettier",
 	"postgres_lsp",
 	"marksman",
+	"terraformls",
+	"rust_analyzer",
+	"bqls",
 })

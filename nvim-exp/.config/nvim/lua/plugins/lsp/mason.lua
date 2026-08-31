@@ -23,22 +23,22 @@ mason_tool_installer.setup({
 		"stylua",
 		-- "ty",
 		-- "basedpyright",
-		-- "pyright",
+		"pyright",
 		"rust_analyzer",
 		"ruff",
 		"pyrefly",
-		-- brew install marksman
-		-- "marksman",
 		-- https://github.com/bash-lsp/bash-language-server/tree/main
-		"bashls",
+		-- "bashls",
 		"html",
 		"cssls",
 		"ts_ls",
-		-- "bqls",
+		"bqls",
 		"jsonls",
 		"biome",
 		"postgres-language-server",
+		-- brew install marksman
 		"marksman",
+		"terraform-ls",
 	},
 })
 
