@@ -28,6 +28,30 @@ map("n", "<C-l>", "<C-w>l", "Move focus to the right window")
 map("n", "<C-j>", "<C-w>j", "Move focus to the lower window")
 map("n", "<C-k>", "<C-w>k", "Move focus to the upper window")
 
+-- Push the divider in the direction pressed, whichever side of it you're on.
+-- `resize` always grows the current window, so flip the sign when the divider
+-- we're pushing is the current window's own leading edge.
+local function push_divider(dir)
+	local vertical = dir == "h" or dir == "l"
+	local probe = vertical and "l" or "j"
+	local trailing = vim.fn.winnr(probe) ~= vim.fn.winnr()
+	local toward_trailing = dir == "l" or dir == "j"
+	local grow = trailing == toward_trailing
+	vim.cmd((vertical and "vertical resize " or "resize ") .. (grow and "+5" or "-5"))
+end
+
+-- Needs the Kitty keyboard protocol to tell C-S-x from C-x. Ghostty speaks it.
+for key, desc in pairs({
+	h = "Push split left",
+	l = "Push split right",
+	j = "Push split down",
+	k = "Push split up",
+}) do
+	map("n", "<C-S-" .. key .. ">", function()
+		push_divider(key)
+	end, desc)
+end
+
 map("v", "J", ":m '>+1<CR>gv=gv", "Move line down")
 map("v", "K", ":m '<-2<CR>gv=gv", "Move line up")
 map("v", "L", ">gv", "Indent right and reselect")
