@@ -2,8 +2,22 @@
 # Print every default with `herdr --default-config`.
 # Reload a running server with `herdr server reload-config` or prefix+shift+r.
 
+
+# Other useful key
+# cmd+b r               Resize mode
+# cmd+b tab / shift+tab Cycle panes
+# cmd+b shift+h/j/k/l   Swap panes
+# cmd+b e               edit_scrollback
+
 [theme]
+# nekomi is catppuccin-mocha derived, so the base theme already matches.
+# Only the tokens nekomi actually repaints are overridden below.
 name = "catppuccin"
+
+[theme.custom]
+mauve = "#f5a3d0"   # nekomi swaps mocha's mauve for its signature pink
+teal = "#89b4fa"    # nekomi maps cyan onto blue
+accent = "#89b4fa"  # nekomi blue
 
 [keys]
 # Ghostty forwards cmd+b as ESC+b, so this makes cmd+b the leader like tmux.
@@ -28,15 +42,27 @@ new_tab = "alt+n"
 # cmd+b then cmd+n. alt+n is not the prefix key, so it is not reserved.
 new_workspace = ["prefix+shift+n", "prefix+alt+n"]
 
-# cmd+w / cmd+b cmd+w, mirroring the new_tab and new_workspace pair.
+# cmd+w closes the pane; cmd+b cmd+w closes the workspace.
+# close_tab stays on its stock prefix+shift+x.
 # ui.confirm_close still gates the workspace one.
-close_tab = ["prefix+shift+x", "alt+w"]
+close_pane = ["prefix+x", "alt+w"]
 close_workspace = ["prefix+shift+d", "prefix+alt+w"]
 
 # prefix+1..9 is free because switch_tab moved to the cmd-forwarded chords.
 # Switch only: herdr has no create-if-missing indexed jump.
 switch_workspace = "prefix+1..9"
 
+# shift+\ is | and shift+- is _, matching the divider each split draws.
+# Replaces the stock prefix+v / prefix+minus.
+split_vertical = "prefix+shift+\\"
+split_horizontal = "prefix+shift+minus"
+
+# v for visual, taking over the slot prefix+v used to hold for splits.
+copy_mode = "prefix+v"
+
 [ui]
 sidebar_start_collapsed = true
 sidebar_collapsed_mode = "hidden"
+
+[ui.sound]
+enabled = false
