@@ -1,0 +1,42 @@
+# Herdr config. Full reference: https://herdr.dev/docs/configuration/
+# Print every default with `herdr --default-config`.
+# Reload a running server with `herdr server reload-config` or prefix+shift+r.
+
+[theme]
+name = "catppuccin"
+
+[keys]
+# Ghostty forwards cmd+b as ESC+b, so this makes cmd+b the leader like tmux.
+# Cost: panes no longer receive alt+b for readline backward-word.
+prefix = "alt+b"
+
+# cmd+b then b. Pressing the prefix twice is reserved by herdr for sending a
+# literal prefix key through to the pane, so it cannot toggle anything.
+toggle_sidebar = "prefix+b"
+
+# Prefix-free pane and tab movement, mirroring the tmux bindings.
+# Ghostty rewrites cmd+hjkl and cmd+1..9 into these meta sequences.
+focus_pane_left = "alt+h"
+focus_pane_down = "alt+j"
+focus_pane_up = "alt+k"
+focus_pane_right = "alt+l"
+switch_tab = "alt+1..9"
+
+# cmd+n. Prefix-free; next_tab keeps the stock prefix+n.
+new_tab = "alt+n"
+
+# cmd+b then cmd+n. alt+n is not the prefix key, so it is not reserved.
+new_workspace = ["prefix+shift+n", "prefix+alt+n"]
+
+# cmd+w / cmd+b cmd+w, mirroring the new_tab and new_workspace pair.
+# ui.confirm_close still gates the workspace one.
+close_tab = ["prefix+shift+x", "alt+w"]
+close_workspace = ["prefix+shift+d", "prefix+alt+w"]
+
+# prefix+1..9 is free because switch_tab moved to the cmd-forwarded chords.
+# Switch only: herdr has no create-if-missing indexed jump.
+switch_workspace = "prefix+1..9"
+
+[ui]
+sidebar_start_collapsed = true
+sidebar_collapsed_mode = "hidden"
