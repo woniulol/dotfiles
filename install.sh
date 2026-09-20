@@ -67,7 +67,7 @@ cd
 # for fzf-lua
 sudo apt install -y fd-find ripgrep
 cd dotfiles
-stow nvim-exp
+stow nvim
 
 # yazi
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
