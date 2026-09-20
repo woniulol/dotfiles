@@ -86,11 +86,12 @@ map("x", "<leader>rs", function()
 	require("user.sh").run_selection()
 end, "run selection as shell command")
 
--- Save <C-\\> for zmx
-map("t", "<C-]>", "<C-\\><C-n>", "exit terminal mode")
-map("t", "<C-\\>", function()
-	vim.api.nvim_chan_send(vim.b.terminal_job_id, "\28")
-end, "send <C-\\> to terminal (zmx detach)")
+-- -- Save <C-\\> for zmx
+-- map("t", "<C-]>", "<C-\\><C-n>", "exit terminal mode")
+-- map("t", "<C-\\>", function()
+-- 	vim.api.nvim_chan_send(vim.b.terminal_job_id, "\28")
+-- end, "send <C-\\> to terminal (zmx detach)")
+map("t", "<C-\\>", "<C-\\><C-n>", "exit terminal mode")
 
 map("n", "<leader>yp", function()
 	local path = vim.fn.expand("%:p")

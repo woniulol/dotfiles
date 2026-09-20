@@ -146,7 +146,14 @@ vim.lsp.config("marksman", {
 })
 
 vim.lsp.config("terraformls", {})
-vim.lsp.config("rust_analyzer", {})
+-- native diagnostics duplicate cargo check's rustc errors, keep only rustc
+vim.lsp.config("rust_analyzer", {
+	settings = {
+		["rust-analyzer"] = {
+			diagnostics = { enable = false },
+		},
+	},
+})
 
 -- vim.lsp.config("bqls", {
 -- 	settings = {

@@ -12,6 +12,8 @@ vim.api.nvim_create_autocmd("PackChanged", {
 
 vim.pack.add({
 	"https://github.com/kotsuban/nekomi.nvim",
+	{ src = "https://github.com/catppuccin/nvim", name = "catppuccin" },
+
 	"https://github.com/folke/snacks.nvim",
 
 	-- deps
