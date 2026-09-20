@@ -46,10 +46,6 @@ vim.pack.add({
 	"https://github.com/mcauley-penney/visual-whitespace.nvim",
 	"https://github.com/folke/todo-comments.nvim",
 	"https://github.com/windwp/nvim-autopairs",
-	{
-		src = "https://github.com/kitagry/bqls.nvim",
-		version = "main",
-	},
 })
 
 -- prepend mason's bin dir so lspconfig can spawn already-installed servers
@@ -64,6 +60,7 @@ require("plugins.fzf-lua")
 require("plugins.treesitter")
 require("plugins.blinkcmp")
 require("plugins.lsp.lspconfig")
+require("features.bigquery").setup()
 
 -- deferred: run on the next event loop tick so they don't block first paint
 vim.schedule(function()
@@ -76,7 +73,6 @@ vim.schedule(function()
 	require("plugins.yazi")
 	require("plugins.autopairs")
 	require("plugins.snacks")
-	require("plugins.bqls")
 end)
 
 -- lazy: load mason the first time you open the cmdline (covers :Mason*)

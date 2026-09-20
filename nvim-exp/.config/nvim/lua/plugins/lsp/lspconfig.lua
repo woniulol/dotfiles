@@ -155,38 +155,6 @@ vim.lsp.config("rust_analyzer", {
 	},
 })
 
--- vim.lsp.config("bqls", {
--- 	settings = {
--- 		project_id = "mydpv-project",
--- 		location = "asia-southeast1",
--- 	},
--- })
--- local function bqls_configure(project_id, location)
--- 	for _, client in ipairs(vim.lsp.get_clients({ name = "bqls" })) do
--- 		client:notify("workspace/didChangeConfiguration", {
--- 			settings = { project_id = project_id, location = location },
--- 		})
--- 	end
--- 	vim.notify(("bqls -> %s @ %s"):format(project_id, location))
--- end
--- vim.keymap.set("n", "<leader>dp", function()
--- 	local presets = {
--- 		{ project = "mydpv-project", location = "asia-southeast1" },
--- 		{ project = "dpv-aicto", location = "asia-southeast1" },
--- 		{ project = "dpv-aicto-client", location = "asia-southeast1" },
--- 	}
--- 	vim.ui.select(presets, {
--- 		prompt = "bqls project",
--- 		format_item = function(p)
--- 			return ("%s @ %s"):format(p.project, p.location)
--- 		end,
--- 	}, function(choice)
--- 		if choice then
--- 			bqls_configure(choice.project, choice.location)
--- 		end
--- 	end)
--- end, { desc = "Switch bqls project/location" })
-
 vim.lsp.enable({
 	"lua_ls",
 	"ruff",
@@ -203,5 +171,4 @@ vim.lsp.enable({
 	"marksman",
 	"terraformls",
 	"rust_analyzer",
-	"bqls",
 })

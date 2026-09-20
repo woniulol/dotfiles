@@ -17,7 +17,7 @@ mason_lspconfig.setup({
 })
 
 mason_tool_installer.setup({
-	ensure_installed = {
+	ensure_installed = vim.list_extend({
 		"prettier",
 		"lua_ls",
 		"stylua",
@@ -32,14 +32,13 @@ mason_tool_installer.setup({
 		"html",
 		"cssls",
 		"ts_ls",
-		"bqls",
 		"jsonls",
 		"biome",
 		"postgres-language-server",
 		-- brew install marksman
 		"marksman",
 		"terraform-ls",
-	},
+	}, require("features.bigquery").tools()),
 })
 
 mason_tool_installer.check_install(false)
