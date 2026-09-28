@@ -10,14 +10,8 @@
 # cmd+b e               edit_scrollback
 
 [theme]
-# nekomi is catppuccin-mocha derived, so the base theme already matches.
-# Only the tokens nekomi actually repaints are overridden below.
+# herdr's "catppuccin" is mocha, matching ghostty and nvim
 name = "catppuccin"
-
-[theme.custom]
-mauve = "#f5a3d0"   # nekomi swaps mocha's mauve for its signature pink
-teal = "#89b4fa"    # nekomi maps cyan onto blue
-accent = "#89b4fa"  # nekomi blue
 
 [keys]
 # Ghostty forwards cmd+b as ESC+b, so this makes cmd+b the leader like tmux.

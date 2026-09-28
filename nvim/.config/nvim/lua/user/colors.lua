@@ -23,6 +23,7 @@
 -- })
 -- vim.cmd.colorscheme("nekomi")
 require("catppuccin").setup({
+	flavour = "mocha",
 	custom_highlights = function(C)
 		return {
 			-- default is peach text on a bg close to CursorLine, too easy to miss

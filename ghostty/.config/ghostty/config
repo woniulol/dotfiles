@@ -16,8 +16,7 @@ font-feature = -clig
 font-feature = -calt
 
 
-theme = nekomi
-cursor-color = #fec270
+theme = Catppuccin Mocha
 
 # MacOS only
 font-thicken = true
