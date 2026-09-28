@@ -16,7 +16,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		map("grd", fzf.lsp_definitions, "goto definition")
 		map("grr", fzf.lsp_references, "goto references")
 		map("gri", fzf.lsp_implementations, "goto implementation")
-		map("grt", fzf.lsp_typedefs, "type defs")
+		map("grt", function()
+			-- preview below the list so long type paths fit on one line
+			fzf.lsp_typedefs({ winopts = { preview = { layout = "vertical" } } })
+		end, "type defs")
 
 		map("gO", fzf.lsp_document_symbols, "open document symbols")
 		map("gW", fzf.lsp_live_workspace_symbols, "open workspace symbols")

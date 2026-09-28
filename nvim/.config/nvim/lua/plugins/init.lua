@@ -52,8 +52,6 @@ vim.pack.add({
 -- before the deferred mason.setup() runs
 vim.env.PATH = vim.fn.stdpath("data") .. "/mason/bin:" .. vim.env.PATH
 
--- eager: register lazy keymaps (no plugin code loaded yet)
-require("plugins.fzf-lua")
 -- require("plugins.nvim-tree")
 
 -- eager: needed before the first buffer's FileType fires
@@ -64,6 +62,7 @@ require("features.bigquery").setup()
 
 -- deferred: run on the next event loop tick so they don't block first paint
 vim.schedule(function()
+	require("plugins.fzf-lua")
 	require("plugins.mini-surround")
 	require("plugins.gitsigns")
 	require("plugins.conform")
