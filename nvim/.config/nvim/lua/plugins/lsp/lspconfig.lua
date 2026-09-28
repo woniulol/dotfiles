@@ -23,6 +23,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 		map("gO", fzf.lsp_document_symbols, "open document symbols")
 		map("gW", fzf.lsp_live_workspace_symbols, "open workspace symbols")
+
+		local client = vim.lsp.get_client_by_id(event.data.client_id)
+		if client and client.name == "rust_analyzer" then
+			map("gK", require("plugins.lsp.rust_type_path").show_type_path, "show type path")
+		end
 	end,
 })
 
