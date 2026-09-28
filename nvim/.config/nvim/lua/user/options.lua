@@ -33,7 +33,8 @@ vim.opt.wildignore:append({ "**/node_modules/**", "**/.git/**", "**/build/**" })
 vim.o.inccommand = "split" -- preview substitutions live, as you type!
 
 -- visual
-vim.opt.guicursor = "a:block-Cursor"
+-- no highlight group, so the terminal keeps its own cursor color
+vim.opt.guicursor = "a:block,i-ci-ve:ver25"
 vim.opt.cursorline = true -- highlight cursor line
 vim.opt.signcolumn = "yes" -- ruler
 vim.opt.colorcolumn = "88" -- ruler show at n char
