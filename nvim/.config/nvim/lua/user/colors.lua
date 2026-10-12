@@ -24,6 +24,9 @@
 -- vim.cmd.colorscheme("nekomi")
 require("catppuccin").setup({
 	flavour = "mocha",
+	-- no bg so ghostty's background-opacity shows through; winborder keeps floats readable
+	transparent_background = true,
+	float = { transparent = true },
 	custom_highlights = function(C)
 		return {
 			-- default is peach text on a bg close to CursorLine, too easy to miss

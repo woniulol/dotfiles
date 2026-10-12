@@ -1,7 +1,5 @@
 
-
-
-font-family = JetBrainsMono Nerd Font Mono
+font-family = Menlo
 
 font-style = "Regular"
 font-style-bold = "Bold"
@@ -9,21 +7,21 @@ font-style-italic = "Italic"
 font-style-bold-italic = "Bold Italic"
 
 font-size = 16
-adjust-cell-width=-10%
-adjust-cell-height=-10%
+# adjust-cell-width=-5%
+adjust-cell-height=10%
 font-feature = -liga
 font-feature = -clig
 font-feature = -calt
-
 
 theme = Catppuccin Mocha
 
 # MacOS only
 font-thicken = true
-font-thicken-strength = 128
+font-thicken-strength = 64
 
-# background-opacity = 0.75
-# background-blur = 10
+# the one transparency knob (herdr and nvim draw no bg); needs a full quit on macOS
+background-opacity = 0.75
+background-blur = 16
 
 window-padding-balance = true
 window-padding-x = 10
@@ -36,10 +34,11 @@ macos-option-as-alt = true
 confirm-close-surface = false
 
 copy-on-select = clipboard
+clipboard-write = allow
 
 # custom-shader = shaders/cursor_smear_gradient.glsl
 # custom-shader = shaders/cursor_smear_fade.glsl
-# custom-shader = shaders/cursor_smear_original.glsl
+custom-shader = shaders/cursor_smear_original.glsl
 cursor-style = block
 cursor-style-blink = false
 
@@ -62,6 +61,7 @@ keybind = cmd+h=text:\x1b\x68
 keybind = cmd+j=text:\x1b\x6a
 keybind = cmd+k=text:\x1b\x6b
 keybind = cmd+l=text:\x1b\x6c
+keybind = cmd+p=text:\x1b\x70
 
 keybind = cmd+digit_1=text:\x1b\x31
 keybind = cmd+digit_2=text:\x1b\x32

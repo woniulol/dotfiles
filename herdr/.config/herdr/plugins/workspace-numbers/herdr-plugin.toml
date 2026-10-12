@@ -1,0 +1,29 @@
+# Feeds the $num token used by [ui.sidebar.spaces] rows in config.toml.
+# herdr has no built-in workspace number token, so this reports one per workspace.
+id = "dotfiles.workspace-numbers"
+name = "Workspace numbers"
+version = "0.1.0"
+min_herdr_version = "0.8.2"
+description = "Expose each workspace's switch number as the $num sidebar token"
+platforms = ["macos", "linux"]
+
+# Token metadata is not restored after a server restart.
+[[startup]]
+command = ["sh", "report-numbers.sh"]
+
+# Numbers shift on every create, close and reorder.
+[[events]]
+on = "workspace.created"
+command = ["sh", "report-numbers.sh"]
+
+[[events]]
+on = "workspace.closed"
+command = ["sh", "report-numbers.sh"]
+
+[[events]]
+on = "workspace.moved"
+command = ["sh", "report-numbers.sh"]
+
+[[events]]
+on = "workspace.reordered"
+command = ["sh", "report-numbers.sh"]

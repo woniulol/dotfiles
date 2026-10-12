@@ -1,3 +1,4 @@
+onboarding = false
 # Herdr config. Full reference: https://herdr.dev/docs/configuration/
 # Print every default with `herdr --default-config`.
 # Reload a running server with `herdr server reload-config` or prefix+shift+r.
@@ -8,10 +9,20 @@
 # cmd+b tab / shift+tab Cycle panes
 # cmd+b shift+h/j/k/l   Swap panes
 # cmd+b e               edit_scrollback
+# cmd+b shift+w         rename work space
+# cmd+b shift+T         rename tab
 
 [theme]
 # herdr's "catppuccin" is mocha, matching ghostty and nvim
 name = "catppuccin"
+auto_switch = false
+
+[theme.custom]
+active_row_bg = "transparent" # stock #1e1e2e would be a solid band on the see-through window
+surface_dim = "#6c7086"       # sidebar lines = unfocused pane border (overlay0); stock equals the bg
+# stock #181825 paints the tab bar, mode bars and popup borders as solid bands.
+# Cost: label text on accent falls back to surface_dim, 2.3:1 contrast instead of 8.3:1.
+panel_bg = "transparent"
 
 [keys]
 # Ghostty forwards cmd+b as ESC+b, so this makes cmd+b the leader like tmux.
@@ -54,9 +65,36 @@ split_horizontal = "prefix+shift+minus"
 # v for visual, taking over the slot prefix+v used to hold for splits.
 copy_mode = "prefix+v"
 
+# cmd+p, like quick open: fuzzy-pick a workspace by name, workspaces only.
+# Reaches every workspace, unlike the 1..9 jumps.
+# goto (prefix+g) also lists every pane, and its search needs / first.
+# Last in [keys]: keys after a [[keys.command]] header would belong to it.
+[[keys.command]]
+key = "alt+p"
+type = "popup"
+width = "50%"
+height = "50%"
+command = 'sh "$HOME/.config/herdr/scripts/pick-workspace.sh"'
+description = "jump to workspace"
+
 [ui]
 sidebar_start_collapsed = true
 sidebar_collapsed_mode = "hidden"
+agent_panel_sort = "spaces"
+
+# $num is the workspace's switch number, reported by plugins/workspace-numbers.
+# herdr always puts " · " around custom tokens, so this renders as "● 1 · name".
+[ui.sidebar.spaces]
+rows = [["state_icon", "$num", "workspace"], ["branch", "git_status"]]
 
 [ui.sound]
 enabled = false
+
+# No popup when a selection lands on the clipboard; copy_on_select stays on.
+[ui.toast.clipboard]
+enabled = false
+
+# Forward Kitty graphics from panes to Ghostty, so bookokrat can show PDF pages.
+# Off by default in 0.8.x. Needs a client reattach (prefix+q, then herdr) or server restart.
+[experimental]
+kitty_graphics = true
