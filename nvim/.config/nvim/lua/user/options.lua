@@ -84,7 +84,10 @@ vim.opt.iskeyword:append("_") -- treat "_" as part of a word
 -- https://github.com/neovim/neovim/discussions/28010#discussioncomment-9877494
 vim.o.clipboard = "unnamedplus"
 local is_ssh = vim.env.SSH_TTY ~= nil or vim.env.SSH_CONNECTION ~= nil
-if is_ssh then
+-- Persistent herdr panes may have no SSH environment, even when attached remotely.
+-- Let herdr deliver clipboard writes to the attached client instead of using pbcopy.
+local is_herdr = vim.env.HERDR_PANE_ID ~= nil
+if is_ssh or is_herdr then
 	local function paste()
 		return {
 			vim.fn.split(vim.fn.getreg('"'), "\n"),
