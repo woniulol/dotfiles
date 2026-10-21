@@ -24,13 +24,22 @@
 -- vim.cmd.colorscheme("nekomi")
 require("catppuccin").setup({
 	flavour = "mocha",
+	color_overrides = {
+		mocha = { text = "#e6efff" },
+	},
 	-- no bg so ghostty's background-opacity shows through; winborder keeps floats readable
 	transparent_background = true,
 	float = { transparent = true },
 	custom_highlights = function(C)
 		return {
+			-- Keep relative line numbers readable and emphasize the current line.
+			LineNr = { fg = C.subtext1 },
+			LineNrAbove = { fg = C.subtext1 },
+			LineNrBelow = { fg = C.subtext1 },
+			CursorLineNr = { fg = C.peach, style = { "bold" } },
 			-- default is peach text on a bg close to CursorLine, too easy to miss
-			MatchParen = { fg = C.base, bg = C.peach, style = { "bold" } },
+			-- Blue distinguishes the matching bracket from the terminal's peach cursor.
+			MatchParen = { fg = C.base, bg = C.blue, style = { "bold" } },
 		}
 	end,
 })

@@ -1,27 +1,35 @@
-
-font-family = Menlo
+font-family = GoogleSansCode NFM
 
 font-style = "Regular"
 font-style-bold = "Bold"
 font-style-italic = "Italic"
 font-style-bold-italic = "Bold Italic"
 
-font-size = 16
-# adjust-cell-width=-5%
-adjust-cell-height=10%
+font-size = 18
+# adjust-cell-width=5%
+# adjust-cell-height=10%
 font-feature = -liga
 font-feature = -clig
 font-feature = -calt
 
 theme = Catppuccin Mocha
 
+# Cool white text to match Neovim.
+foreground = #e6efff
+palette = 7=#e6efff
+palette = 15=#e6efff
+
+# Cool selection colors.
+selection-background = #45475a
+selection-foreground = #e6efff
+
 # MacOS only
 font-thicken = true
 font-thicken-strength = 64
 
 # the one transparency knob (herdr and nvim draw no bg); needs a full quit on macOS
-background-opacity = 0.75
-background-blur = 16
+background-opacity = 0.85
+background-blur = 32
 
 window-padding-balance = true
 window-padding-x = 10
@@ -38,7 +46,10 @@ clipboard-write = allow
 
 # custom-shader = shaders/cursor_smear_gradient.glsl
 # custom-shader = shaders/cursor_smear_fade.glsl
-custom-shader = shaders/cursor_smear_original.glsl
+# custom-shader = shaders/cursor_smear_original.glsl
+# Pale peach cursor with dark text.
+cursor-color = #ffd6b0
+cursor-text = #1e1e2e
 cursor-style = block
 cursor-style-blink = false
 
