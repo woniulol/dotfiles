@@ -25,6 +25,7 @@ mason_tool_installer.setup({
 		-- "basedpyright",
 		"pyright",
 		"rust_analyzer",
+		"clangd",
 		"ruff",
 		"pyrefly",
 		-- https://github.com/bash-lsp/bash-language-server/tree/main

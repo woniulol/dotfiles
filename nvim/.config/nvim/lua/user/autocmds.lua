@@ -1,6 +1,24 @@
 local autocmd = vim.api.nvim_create_autocmd
 local general = vim.api.nvim_create_augroup("LocalGeneral", { clear = true })
 
+autocmd("FileType", {
+	desc = "set simple build and run commands",
+	group = general,
+	pattern = { "rust", "c" },
+	callback = function(event)
+		if vim.bo[event.buf].filetype == "rust" then
+			vim.cmd("compiler cargo")
+			vim.opt_local.makeprg = "cargo build"
+			vim.b.runprg = "cargo run"
+		else
+			-- Clang uses GCC-compatible diagnostic output.
+			vim.cmd("compiler gcc")
+			vim.opt_local.makeprg = "clang -Wall -Wextra -g %:p:S -o %:p:r:S"
+			vim.b.runprg = "%:p:r:S"
+		end
+	end,
+})
+
 autocmd("TextYankPost", {
 	desc = "highlight when yanking text",
 	group = general,

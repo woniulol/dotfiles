@@ -122,5 +122,31 @@ map("n", "<leader>ts", function()
 end, "toggle spell check")
 
 map("n", "<leader>fmt", vim.lsp.buf.format, "lsp format")
+map("n", "<leader>mb", function()
+	vim.cmd("wall")
+	vim.cmd("make")
+	local exit_code = vim.v.shell_error
+	local has_diagnostics = vim.iter(vim.fn.getqflist()):any(function(item)
+		return item.valid == 1
+	end)
+	vim.cmd("botright cwindow 10")
+	if exit_code ~= 0 then
+		vim.notify("Build failed (exit code " .. exit_code .. ").", vim.log.levels.ERROR)
+	elseif not has_diagnostics then
+		vim.api.nvim_echo({
+			{ "Build " },
+			{ "passed", "DiagnosticOk" },
+			{ ". No compiler diagnostics." },
+		}, true, {})
+	end
+end, "build")
+map("n", "<leader>mr", function()
+	vim.cmd("wall")
+	if vim.b.runprg then
+		vim.cmd("!" .. vim.fn.expandcmd(vim.b.runprg))
+	else
+		vim.cmd("make run")
+	end
+end, "run")
 map("n", "<leader>D", vim.diagnostic.setloclist, "open diagnostic list")
 map("n", "<leader>d", vim.diagnostic.open_float, "Line diagnostics")

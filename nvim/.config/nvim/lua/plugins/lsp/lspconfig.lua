@@ -179,4 +179,5 @@ vim.lsp.enable({
 	"marksman",
 	"terraformls",
 	"rust_analyzer",
+	"clangd",
 })
