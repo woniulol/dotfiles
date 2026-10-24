@@ -129,7 +129,7 @@ map("n", "<leader>mb", function()
 	local has_diagnostics = vim.iter(vim.fn.getqflist()):any(function(item)
 		return item.valid == 1
 	end)
-	vim.cmd("botright cwindow 10")
+	vim.cmd("botright cwindow 15")
 	if exit_code ~= 0 then
 		vim.notify("Build failed (exit code " .. exit_code .. ").", vim.log.levels.ERROR)
 	elseif not has_diagnostics then
