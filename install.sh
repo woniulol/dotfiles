@@ -1,4 +1,5 @@
-cd /
+cd "${HOME}"
+
 sudo apt update && sudo apt install -y \
     curl \
     net-tools \
@@ -110,4 +111,3 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 sudo nano /etc/NetworkManager/conf.d/default-wifi-powersave-on.conf
 # set wifi.powersave = 2
 # sudo systemctl restart NetworkManager
-
