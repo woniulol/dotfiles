@@ -193,7 +193,9 @@ sudo pacman -S --needed \
     ffmpeg \
     mpd \
     mpc \
-    rmpc
+    rmpc \
+    mpd-mpris
+
 
 mkdir -p "${HOME}/.config/mpd"
 mkdir -p "${HOME}/.local/share/mpd/playlists"
@@ -219,3 +221,29 @@ mkdir -p "${HOME}/.config/rmpc"
 mkdir -p "${HOME}/.config/rmpc/themes"
 rmpc config > "${HOME}/.config/rmpc/config.ron"
 rmpc theme > "${HOME}/.config/rmpc/themes/custom.ron"
+
+# screenshot
+# export PATH="${HOME}/.cargo/bin:${PATH}"
+cargo install shotori --locked
+systemctl --user enable --now mpd-mpris.service
+
+# more fonts
+# yay -S ttf-lxgw-wenkai
+yay -S ttf-lxgw-bright
+
+git clone --depth 1 --filter=blob:none --sparse \
+    https://github.com/lxgw/LxgwBright-Code.git \
+    /tmp/LxgwBright-Code
+
+git -C /tmp/LxgwBright-Code sparse-checkout set LxgwBrightCodeNF
+mkdir -p "${HOME}/.local/share/fonts/LXGWBrightCodeNF"
+find /tmp/LxgwBright-Code/LxgwBrightCodeNF \
+    -type f -name '*.ttf' \
+    -exec cp -n -t "${HOME}/.local/share/fonts/LXGWBrightCodeNF/" {} +
+
+fc-cache -f
+rm -rf /tmp/LxgwBright-Codea
+
+# backup
+sudo pacman -S --needed timeshift
+sudo systemctl enable --now cronie.service
