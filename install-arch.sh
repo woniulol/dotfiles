@@ -242,7 +242,7 @@ find /tmp/LxgwBright-Code/LxgwBrightCodeNF \
     -exec cp -n -t "${HOME}/.local/share/fonts/LXGWBrightCodeNF/" {} +
 
 fc-cache -f
-rm -rf /tmp/LxgwBright-Codea
+rm -rf /tmp/LxgwBright-Code
 
 # backup
 sudo pacman -S --needed timeshift
