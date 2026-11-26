@@ -178,14 +178,28 @@ sudo pacman -S --needed \
 sudo pacman -S --needed mpv
 
 # input
-sudo pacman -S --needed \
-  fcitx5 \
-  fcitx5-chinese-addons \
-  fcitx5-configtool \
-  fcitx5-gtk \
-  fcitx5-qt
-
+# Fcitx5
 # niri: spawn-at-startup "fcitx5" "-d"
+sudo pacman -S --needed \
+    fcitx5 \
+    fcitx5-chinese-addons \
+    fcitx5-configtool \
+    fcitx5-gtk \
+    fcitx5-qt
+
+# Rime
+sudo pacman -S --needed fcitx5-rime
+
+# Rime Ice
+yay -S --needed rime-ice-git
+
+# 词库、语法库
+# mkdir -p "${HOME}/.local/share/fcitx5/rime"
+git clone https://github.com/rime/plum.git "${HOME}/.local/share/plum"
+cd "${HOME}/.local/share/plum"
+
+rime_dir="${HOME}/.local/share/fcitx5/rime" \
+    bash rime-install iDvel/rime-ice:others/recipes/grammar:schema=rime_ice
 
 # music (yt-dlp + rmpc + mpd)
 sudo pacman -S --needed \
@@ -247,3 +261,23 @@ rm -rf /tmp/LxgwBright-Code
 # backup
 sudo pacman -S --needed timeshift
 sudo systemctl enable --now cronie.service
+
+# gaming
+sudo vim /etc/pacman.conf
+# Find and uncomment:
+# [multilib]
+# Include = /etc/pacman.d/mirrorlist
+
+sudo pacman -Syu --needed \
+    steam \
+    lib32-mesa \
+    lib32-nvidia-utils \
+    lib32-vulkan-radeon \
+    vulkan-tools \
+    nvidia-prime
+
+# sidebutton
+sudo pacman -S --needed libinput-tools
+sudo pacman -S --needed piper libratbag
+sudo systemctl start ratbagd.service
+# piper => to do the configuration
